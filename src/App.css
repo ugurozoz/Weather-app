@@ -1,4 +1,36 @@
+main {
+  max-width: 980px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .current {
-  background: #1E213A;
-  
+  background: #1e213a;
+  height: 100vh;
+  width: 100vw;
+}
+
+.forecasts-details {
+  background: #100e1d;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+  }
+  .current {
+    height: 30vh;
+  }
+  .forecasts-details {
+    height: 70vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    flex-direction: row;
+  }
+  .current {
+    width: 300px;
+  }
 }
