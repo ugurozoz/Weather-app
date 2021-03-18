@@ -12,7 +12,7 @@ const currentSituation: React.FC<situation> = ({
   temperature,
   situationName,
 }) => {
-  const weatherIcon = `../../../assets/${image}`;
+  const weatherIcon = `/assets/${image}`;
   return (
     <>
       <div className='currentSitutation'>
