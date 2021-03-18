@@ -1,11 +1,12 @@
 import React from 'react';
+import Current from './components/current/current'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <main>
-        <section className="current">Current</section>
+        <section className="current"><Current /></section>
         <section className="forecasts-details">Forecasts, Details</section>
       </main>
     </div>

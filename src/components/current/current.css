@@ -1,0 +1,5 @@
+.current__top{
+  padding: 18px 11px 0;
+  display: flex;
+  justify-content: space-between;
+}
