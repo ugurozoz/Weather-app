@@ -1,3 +1,4 @@
+import Image from '../../utilities/Image/Image';
 import './currentSituation.css';
 
 interface situation {
@@ -6,23 +7,26 @@ interface situation {
   situationName: string;
 }
 
-const currentSituation: React.FC<situation> = ({ image, temperature, situationName }) => {
-  const weatherIcon = require('../../assets/'+image);
+const currentSituation: React.FC<situation> = ({
+  image,
+  temperature,
+  situationName,
+}) => {
+  const weatherIcon = `../../../assets/${image}`;
   return (
     <>
       <div className='currentSitutation'>
-        <div className='currentWeatherImage'><img src={String(weatherIcon)} /></div>
+        <div className='currentWeatherImage'>
+          <Image src={weatherIcon} />
+         
+        </div>
         <div className='currentTemperature'>
           <strong>{temperature}</strong>
-          <span>C</span>          
+          <span>C</span>
         </div>
-        <div className="currentSituationName">
+        <div className='currentSituationName'>
           <strong>{situationName}</strong>
-
         </div>
-        
-        
-        
       </div>
     </>
   );
