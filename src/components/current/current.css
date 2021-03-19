@@ -7,3 +7,31 @@
 .current__mid{
   margin: 9.3vh 0 0 0;
 }
+
+.current__bottom{
+  margin-top: 2vh;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .current__top{
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  .current__mid{
+    margin: 60px 0 0 0;
+    
+  }
+
+  .current__bottom {
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+
+  }
+
+
+}

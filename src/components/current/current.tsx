@@ -1,6 +1,7 @@
 import SearchPlacesButton from '../searchPlacesButton/searchPlacesButton';
 import CurrentLocationButton from '../currentLocationButton/currentLocationButton';
 import CurrentSituation from '../currentSituation/currentSituation';
+import DateAndLocation from '../dateAndLocation/dateAndLocation';
 import './current.css';
 
 const current: React.FC = () => {
@@ -12,6 +13,10 @@ const current: React.FC = () => {
       </div>
       <div className='current__mid'>
         <CurrentSituation image="Shower.png" situationName="Shower" temperature="15" />
+      </div>
+      <div className='current__bottom'>
+        <DateAndLocation weatherDay='Today' weatherDate='Fri, 5 Jun'  location='Helsinki'/>
+
       </div>
     </>
   );

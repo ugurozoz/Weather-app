@@ -1,43 +1,54 @@
-.currentSitutation{
+.currentSitutation {
   align-items: center;
 }
 
-.currentWeatherImage,.currentTemperature,.currentSituationName{
+.currentWeatherImage,
+.currentTemperature,
+.currentSituationName {
   text-align: center;
-
 }
 
-.currentWeatherImage{
-  margin:0 0 9.3vh 0;
-
+.currentWeatherImage {
+  margin: 0 0 9.3vh 0;
 }
 
-.currentTemperature{
-  margin:0 0 4vh 0;
-
+.currentTemperature {
+  margin: 0 0 1vh 0;
 }
 
 .currentTemperature span.temperatureValue {
+  font-size: 110px;
 
-font-size: 144px;
-
-color: #E7E7EB;
-
+  color: #e7e7eb;
 }
-
 
 .currentTemperature span.temperatureUnit {
-
   font-size: 48px;
-  
-  color: #E7E7EB;
-  
+
+  color: #e7e7eb;
+}
+
+.currentSituationName span {
+  font-size: 36px;
+  color: #a09fb1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .currentSitutation {
+    display: flex;
+    justify-content: center;
   }
 
-.currentSituationName span{
-  font-size:36px;
-  color:#A09FB1;
+  .currentWeatherImage{
+    margin:0 0 0 0px;
+  }
+  .currentCondition{
+    margin-left: 50px;
+    
+  }
 
+  .currentTemperature {
+    margin: 0 0 0 0;
+  }
 
 }
-  

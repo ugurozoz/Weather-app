@@ -1,8 +1,9 @@
 main {
-  max-width: 980px;
+  max-width: 1440px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 .current {
@@ -13,13 +14,17 @@ main {
 
 .forecasts-details {
   background: #100e1d;
+  
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   main {
   }
   .current {
     height: 30vh;
+    position: relative;
+    
+
   }
   .forecasts-details {
     height: 70vh;
@@ -31,6 +36,18 @@ main {
     flex-direction: row;
   }
   .current {
-    width: 300px;
+    width: 450px;
   }
+  .forecasts-details {
+    width:calc(100% - 450px)
+    
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  
+  .current {
+    width: 450px;
+  }
+  
 }
