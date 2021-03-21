@@ -1,4 +1,3 @@
-import React from 'react';
 import Current from './components/current/current';
 import ForecatsHighlights from './components/forecasts-highlights/forecasts-highlights';
 import './App.css';
