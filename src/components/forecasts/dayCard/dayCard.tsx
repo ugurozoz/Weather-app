@@ -1,5 +1,6 @@
 import Image from '../../../utilities/Image/Image';
 import { forecastValues } from '../../../types/';
+import './dayCard.css';
 
 const dayCard: React.FC<forecastValues> = ({
   day,

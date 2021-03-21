@@ -1,0 +1,43 @@
+.foreCasts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 292px;
+  margin: auto;
+  justify-content: left;
+}
+
+@media screen and (min-width: 525px) {
+  .foreCasts {
+    width: 438px;
+
+  }
+  
+}
+
+
+@media screen and (min-width: 640px) {
+  .foreCasts {
+    width: 584px;
+
+  }
+  
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .foreCasts {
+    width: 730px;
+
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+
+  .foreCasts {
+    width: 730px;
+
+  }
+
+
+}

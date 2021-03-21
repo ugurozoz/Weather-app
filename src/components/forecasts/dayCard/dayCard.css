@@ -1,0 +1,36 @@
+.dayCard{
+  width:120px;
+  height: 177px;
+  text-align: center;
+  background: #1E213A;
+  margin: 0 13px 32px;
+  position: relative;
+}
+
+.dateText{
+  margin: 18px auto 10px auto;
+  height: 20px;
+  line-height: 20px;
+  color:#E7E7EB;
+  
+
+}
+
+.temperatureMinMax{
+  position: absolute;
+  bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  left: 20px;
+}
+
+.temperatureMax{
+  color:#E7E7EB;
+
+}
+
+.temperatureMin{
+  color:#A09FB1;
+
+}
