@@ -1,0 +1,12 @@
+.compass {
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  
+
+}

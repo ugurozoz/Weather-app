@@ -1,0 +1,39 @@
+.hightlight-item{
+  background: #1E213A;
+  color:#E7E7EB;
+  padding: 22px 0 0 0;
+  width: 328px;
+  text-align: center;
+}
+
+
+@media screen and (min-width: 525px) {
+  .hightlight-item{
+    width: 196px;
+  } 
+}
+
+
+@media screen and (min-width: 640px){
+  .hightlight-item{
+    width: 266px;
+  } 
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+
+  .hightlight-item{
+    width: 328px;
+  } 
+
+}
+
+
+@media screen and (min-width: 1200px) {
+  .hightlight-item{
+    width: 328px;
+  } 
+    
+}
+
