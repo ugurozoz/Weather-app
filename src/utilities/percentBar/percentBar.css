@@ -3,6 +3,8 @@
   margin: auto;
 }
 
+
+
 .barIndicators {
   display: flex;
   justify-content: space-between;
@@ -23,6 +25,7 @@
   height:8px;
   display: block;
   width: 0px;
+  transition: all .5s ease-in;
 
   
 }

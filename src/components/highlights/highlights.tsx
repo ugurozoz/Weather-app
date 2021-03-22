@@ -13,7 +13,7 @@ const highlights: React.FC = () => {
           windDirection={245}
           speedUnit='mph'
         />
-        <HumidityCard humidityPercent={100} />
+        <HumidityCard humidityPercent={87} />
       </div>
     </div>
   );
