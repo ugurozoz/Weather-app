@@ -4,6 +4,12 @@
   padding: 22px 0 0 0;
   width: 328px;
   text-align: center;
+  box-sizing: border-box;
+}
+
+.hightlight-item.hightlight-wind{
+  height: 204px;
+
 }
 
 

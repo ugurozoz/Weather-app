@@ -1,11 +1,23 @@
 .wd-compass {
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  width: 20px;
-  height: 20px;
+  background-color: rgba(255,255,255,0.3);
+  width: 30px;
+  height: 30px;
   display: block;
-  
+  position: relative;
+
 
   
 
+}
+
+.wd-compass em{
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url('../../assets/weather-sprite.png') -78.5px 0px;
+  top:7px;
+  left: 7px;
+  position: absolute;
+  
 }

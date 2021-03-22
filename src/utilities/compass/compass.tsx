@@ -5,7 +5,7 @@ interface compassAngle {
 }
 
 const compass: React.FC<compassAngle> = ({ angle }) => {
-  return <span className='wd-compass'></span>;
+  return <span className='wd-compass'><em style={{transform: `rotate(${angle}deg)`}}></em></span>;
 };
 
 export default compass;

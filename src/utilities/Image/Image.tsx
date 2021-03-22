@@ -1,9 +1,8 @@
-import { useCallback, useState, useEffect} from 'react'
+import { useCallback, useState, useEffect } from 'react';
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   placeholderImg?: string;
 }
-
 
 export default ({ src, placeholderImg, ...props }: ImageProps) => {
   const [imgSrc, setSrc] = useState(placeholderImg || src);
@@ -13,9 +12,9 @@ export default ({ src, placeholderImg, ...props }: ImageProps) => {
   useEffect(() => {
     const img = new Image();
     img.src = src as string;
-    img.addEventListener("load", onLoad);
+    img.addEventListener('load', onLoad);
     return () => {
-      img.removeEventListener("load", onLoad);
+      img.removeEventListener('load', onLoad);
     };
   }, [src, onLoad]);
   return <img {...props} alt={imgSrc} src={imgSrc} />;

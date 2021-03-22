@@ -1,0 +1,33 @@
+.percentBar{
+  width:calc(100% - 100px);
+  margin: auto;
+}
+
+.barIndicators {
+  display: flex;
+  justify-content: space-between;
+  color:#A09FB1;
+}
+
+.barItself {
+  height:8px;
+  width: 100%;
+  border-radius: 4px;
+  background: #E7E7EB;
+
+}
+
+.valueBar{
+  background: #FFEC65;
+  border-radius: 4px;
+  height:8px;
+  display: block;
+  width: 0px;
+
+  
+}
+
+.percent-symbol{
+  text-align: right;
+  color:#A09FB1;
+}
