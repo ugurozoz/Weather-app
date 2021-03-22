@@ -4,6 +4,12 @@
   
 }
 
+.highlights h1{
+  color:#E7E7EB;
+  font-size: 24px;
+  font-weight: 400;
+} 
+
 .highlights-items{  
   width:100%;  
   display: flex;

@@ -1,4 +1,4 @@
-import './compass';
+import './compass.css';
 
 interface compassAngle {
   angle: number;
