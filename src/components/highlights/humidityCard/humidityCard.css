@@ -1,0 +1,14 @@
+.humidityPercent {
+  font-style: normal;
+  line-height: 75px;
+  margin: 14px 0 0;
+}
+
+.humidityPercentNumber {
+  font-size: 64px;  
+  font-weight: bold;
+}
+
+.humidityPercentSymbol {
+  font-size: 36px;
+}

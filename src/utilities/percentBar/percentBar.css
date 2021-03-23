@@ -9,6 +9,12 @@
   display: flex;
   justify-content: space-between;
   color:#A09FB1;
+  margin-bottom: 2px;
+}
+
+.barIndicators span {
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .barItself {
