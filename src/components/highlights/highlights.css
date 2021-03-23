@@ -2,6 +2,7 @@
   width:328px;
   margin: auto;
   
+  
 }
 
 .highlights h1{
@@ -14,6 +15,7 @@
   width:100%;  
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .hightlight-item{
@@ -29,6 +31,7 @@
   .highlights-items{  
         flex-direction: row;
         justify-content: space-between;
+
   }
 
 }

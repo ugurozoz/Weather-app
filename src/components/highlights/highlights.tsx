@@ -1,6 +1,7 @@
 import './highlights.css';
 import WindCard from './windCard/windCard';
 import HumidityCard from './humidityCard/humidityCard';
+import VisibilityCard from './visibilityCard/visibilityCard';
 
 const highlights: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const highlights: React.FC = () => {
           speedUnit='mph'
         />
         <HumidityCard humidityPercent={87} />
+        <VisibilityCard visibilityDistance={6.4} distanceUnit='miles'/>
       </div>
     </div>
   );

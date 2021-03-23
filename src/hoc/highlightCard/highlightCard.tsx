@@ -7,7 +7,7 @@ interface hCard {
 
 const highlightCard: React.FC<hCard> = ({ children, cardname }) => {
   return (
-    <div className='hightlight-item hightlight-wind'>
+    <div className='hightlight-item'>
       <div className='hightlight-item-heading'>{cardname}</div>
       {children}
     </div>

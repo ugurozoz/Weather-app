@@ -1,0 +1,14 @@
+.visibilityDistance {
+  font-style: normal;
+  line-height: 75px;
+  margin: 14px 0 0;
+}
+
+.visibilityDistanceNumber {
+  font-size: 64px;  
+  font-weight: bold;
+}
+
+.visibilityDistanceUnit {
+  font-size: 36px;
+}
