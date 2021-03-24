@@ -11,7 +11,7 @@ const visibilityCard: React.FC<visibilityCardParams> = ({
   distanceUnit,
 }) => {
   return (
-    <HighlightCard cardname='Visibility'>
+    <HighlightCard cardTitle='Visibility' cardName='visibility'>
       <div className='visibilityDistance'>
         <span className='visibilityDistanceNumber'>{visibilityDistance}</span>
         <span className='visibilityDistanceUnit'>{distanceUnit}</span>

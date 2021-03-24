@@ -10,7 +10,7 @@ const humidityCard: React.FC<humidityCardParams> = ({
   humidityPercent
 }) => {
   return (
-    <HighlightCard cardname='Humidity'>
+    <HighlightCard cardTitle='Humidity' cardName='humidity'>
       <div className='humidityPercent'>
         <span className="humidityPercentNumber">{humidityPercent}</span>
         <span className="humidityPercentSymbol">%</span>

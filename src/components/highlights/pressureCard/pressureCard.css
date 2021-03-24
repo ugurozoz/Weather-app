@@ -1,0 +1,14 @@
+.pressureAmount {
+  font-style: normal;
+  line-height: 75px;
+  margin: 14px 0 0;
+}
+
+.pressureAmountNumber {
+  font-size: 64px;  
+  font-weight: bold;
+}
+
+.pressureUnit {
+  font-size: 36px;
+}

@@ -16,7 +16,7 @@ const windCard: React.FC<windCardParams> = ({
   speedUnit,
 }) => {
   return (
-    <HighlightCard cardname='Wind status'>
+    <HighlightCard cardTitle='Wind status' cardName='wind'>
       <div className='windSpeed'>
         <span className="windSpeedNumber">{windSpeed}</span>
         <span className="windSpeedUnit">{speedUnit}</span>

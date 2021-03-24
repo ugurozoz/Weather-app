@@ -7,10 +7,15 @@
   box-sizing: border-box;
 }
 
-.hightlight-item.hightlight-wind{
+.hightlight-item.hightlight-wind-item, .hightlight-item.hightlight-humidity-item{
   height: 204px;
 
 }
+
+.hightlight-item.hightlight-visibility-item,.hightlight-item.hightlight-pressure-item{
+  height: 160px;
+}
+
 
 
 @media screen and (min-width: 525px) {
