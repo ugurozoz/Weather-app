@@ -1,0 +1,63 @@
+.unitSelect{
+  display: flex;
+  width:328px;
+  margin:18px auto 20px ;
+  justify-content: flex-end;
+  
+}
+
+.unitSelect button{
+  height: 40px;
+  width: 40px;
+  display: block;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background: #585676;
+  color:#E7E7EB;
+  margin-left:12px ;
+
+}
+
+.unitSelect button.active-unit{
+  background: #E7E7EB;
+  color:#110E3C;
+
+}
+
+@media screen and (min-width: 525px) {
+  .unitSelect{
+    width:412px;    
+  }
+
+}
+
+
+@media screen and (min-width: 640px){
+  .unitSelect{
+    width:558px;    
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .unitSelect{
+    width:704px;    
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .unitSelect{
+    margin: 40px auto 40px;
+  }
+
+}
+
+
+@media screen and (min-width: 1200px) {
+  .unitSelect{
+    width:704px;    
+  }
+    
+}

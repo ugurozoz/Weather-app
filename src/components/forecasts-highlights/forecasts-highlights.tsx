@@ -38,7 +38,7 @@ const dummyForecasts = [
 const forecatsHighlights: React.FC = () => {
   return (
     <>
-      <UnitSelect />
+      <UnitSelect unit='F' />
       <ForeCasts forecasts={dummyForecasts} />
       <Highlights />
     </>
