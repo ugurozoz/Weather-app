@@ -16,3 +16,85 @@
 
 }
 
+.search-location {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.search-location-bt{
+width: 86px;
+height: 48px;
+background: #3C47E9;
+color: #E7E7EB;
+border: none;
+padding: 0 0 0 0;
+
+}
+
+.search-location-input{
+  width: calc(100% - 98px);
+  padding:0 0 0 49px;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  border: 1px solid #E7E7EB;
+  color:#616475;
+  font-size: 16px;
+}
+
+.search-location:before{
+  content:"";
+  width: 17px;
+  height: 17px;
+  background: url('../../assets/weather-sprite.png') -120px 0 no-repeat;
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+
+.close-form{
+  position: absolute;
+  top:17px ;
+  right: 17px;
+  width: 13px;
+  height: 13px;
+  padding:0 0 0 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-form span{
+  display: block;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  /* overflow: hidden;
+  border: 1px solid #ccc; */
+}
+
+.close-form span:before, .close-form span:after{
+  content: "";
+  position: absolute; 
+  top: 0px;
+  height:18px ;
+  transform-origin: top center;
+  
+}
+
+.close-form span:before{
+  border-left: 2px solid #fff;
+  left:-1px;
+  transform: rotate(-45deg);
+}
+
+.close-form span:after{
+  border-left: 2px solid #fff;
+  left:11.72px;
+  transform: rotate(45deg);
+}
+
+

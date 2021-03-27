@@ -1,12 +1,11 @@
-import './searchPlacesForm.css'
+import './searchPlacesForm.css';
 
 const searchPlacesForm = () => {
   return (
     <div className='searchPlacesForm'>
-
-      <div className="search-location">
+      <div className='search-location'>
         <input type='text' className='search-location-input' />
-        <input type='button' value='Search' className="'search-location-input'" />
+        <input type='button' value='Search' className='search-location-bt' />
       </div>
       <div className='cities-near'>
         <button>
@@ -19,6 +18,7 @@ const searchPlacesForm = () => {
           <span>Long Beach</span>
         </button>
       </div>
+      <button className='close-form'><span></span></button>
     </div>
   );
 };
