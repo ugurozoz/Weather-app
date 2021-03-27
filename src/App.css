@@ -9,6 +9,7 @@ main {
 .current {
   background: #1e213a;
   height: 100vh;
+  position: relative;
   /* width: 100vw; */
   /* display: none; */
 }

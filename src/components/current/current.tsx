@@ -2,6 +2,7 @@ import SearchPlacesButton from '../searchPlacesButton/searchPlacesButton';
 import CurrentLocationButton from '../currentLocationButton/currentLocationButton';
 import CurrentSituation from '../currentSituation/currentSituation';
 import DateAndLocation from '../dateAndLocation/dateAndLocation';
+import SearchPlacesForm from '../searchPlacesForm/searchPlacesForm';
 import './current.css';
 
 const current: React.FC = () => {
@@ -18,6 +19,9 @@ const current: React.FC = () => {
         <DateAndLocation weatherDay='Today' weatherDate='Fri, 5 Jun'  location='Helsinki'/>
 
       </div>
+      
+      <SearchPlacesForm/>
+      
     </>
   );
 };

@@ -1,0 +1,18 @@
+.searchPlacesForm{
+  background: #1E213A;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 35;
+  width: 100%;
+  
+
+}
+
+.search-location,.cities-near{
+  width:calc( 100% - 24px );
+  margin:60px auto 0;
+
+}
+
