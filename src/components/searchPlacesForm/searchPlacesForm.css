@@ -5,14 +5,15 @@
   left: 0px;
   bottom: 0px;
   z-index: 35;
-  width: 100%;
+  width: 100%;  
+  transition: all 0.2s ease-out;
   
 
 }
 
 .search-location,.cities-near{
   width:calc( 100% - 24px );
-  margin:60px auto 0;
+  
 
 }
 
@@ -20,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin:60px auto 0;
 }
 
 .search-location-bt{
@@ -96,5 +98,77 @@ padding: 0 0 0 0;
   left:11.72px;
   transform: rotate(45deg);
 }
+
+.cities-near {
+  margin:38px auto 0;
+}
+
+.cities-near button {
+  height: 64px;
+  width: 100%;
+  background: none;
+  border: 1px solid #1E213A;
+  font-size: 16px;
+  color:#E7E7EB;
+  padding: 0 0 0 12px;
+  box-sizing: border-box;
+  text-align: left;
+  position: relative;
+
+  
+}
+
+.cities-near button:hover, .cities-near button:focus{
+  border: 1px solid #616475;
+
+}
+
+/* .cities-near button span:after{
+  content: "";
+  display: block;
+  position:absolute;
+  top:28px;
+  right: 10px;
+  width: 7px;
+  height: 11px;
+  background: url('../../assets/weather-sprite.png') -160px 0 no-repeat;
+
+} */
+
+.cities-near button:hover span:after, .cities-near button:focus  span:after{
+  content: "";
+  display: block;
+  position:absolute;
+  top:28px;
+  right: 10px;
+  width: 7px;
+  height: 11px;
+  background: url('../../assets/weather-sprite.png') -160px 0 no-repeat;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px)  {
+  .cities-near{
+    display: flex;
+
+  }
+
+  .cities-near button{
+    width: 25%;
+    height: 40px;
+  }
+
+  /* .cities-near button span:after{
+    
+    top:14px;
+  } */
+
+  .cities-near button:hover span:after, .cities-near button:focus  span:after{
+    top:14px;
+
+  }
+
+}
+
 
 

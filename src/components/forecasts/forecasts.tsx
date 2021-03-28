@@ -7,13 +7,14 @@ interface forecastsList {
 }
 
 const foreCasts: React.FC<forecastsList> = ({ forecasts }) => {
-  const fiveDayforecasts = forecasts.map((forecast) => {
+  const fiveDayforecasts = forecasts.map((forecast, index) => {
     return (
       <DayCard
         day={forecast.day}
         image={forecast.image}
         temperatureMax={forecast.temperatureMax}
         temperatureMin={forecast.temperatureMin}
+        key={`day${index}`}
       />
     );
   });

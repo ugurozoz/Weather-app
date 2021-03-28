@@ -22,7 +22,7 @@ const currentSituation: React.FC<situation> = ({
         <div className="currentCondition">
           <div className='currentTemperature'>
             <span className='temperatureValue'>{temperature}</span>
-            <span className='temperatureUnit'>℃</span>
+            <span className='temperatureUnit'>°C</span>
           </div>
           <div className='currentSituationName'>
             <span>{situationName}</span>

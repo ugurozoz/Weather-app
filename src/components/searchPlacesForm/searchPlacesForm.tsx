@@ -1,10 +1,24 @@
+import { useState, useEffect } from 'react';
 import './searchPlacesForm.css';
 
-const searchPlacesForm = () => {
-  return (
+interface searchForm {
+  formVisible: boolean;
+  hideForm: () => void;
+
+}
+
+
+const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }) => {
+  
+
+  return (formVisible ? 
     <div className='searchPlacesForm'>
       <div className='search-location'>
-        <input type='text' className='search-location-input' />
+        <input
+          type='text'
+          className='search-location-input'
+          placeholder='Search location'
+        />
         <input type='button' value='Search' className='search-location-bt' />
       </div>
       <div className='cities-near'>
@@ -17,10 +31,15 @@ const searchPlacesForm = () => {
         <button>
           <span>Long Beach</span>
         </button>
+        <button>
+          <span>California</span>
+        </button>
       </div>
-      <button className='close-form'><span></span></button>
-    </div>
+      <button className='close-form' onClick={hideForm}>
+        <span></span>
+      </button>
+    </div> : null
   );
 };
 
-export default searchPlacesForm;
+export default SearchPlacesForm;

@@ -1,8 +1,13 @@
 import './searchPlacesButton.css';
 
-const searchPlacesButton:React.FC = () => {
+interface searchPlaces {
+  onClickHandler: () => void;
+}
+
+
+const searchPlacesButton:React.FC<searchPlaces> = ({onClickHandler}) => {
   return (
-    <button className='searchPlacesButton'>
+    <button className='searchPlacesButton' onClick={onClickHandler}>
       <span>Seach for places</span>
     </button>
   );

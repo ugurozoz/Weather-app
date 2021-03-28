@@ -5,8 +5,8 @@ interface temperatureUnit {
 }
 
 const unitSelect: React.FC<temperatureUnit> = ({ unit }) => {
-  const temperatureSelectButtons = ['F', 'C'].map(buttonText => {
-    const button = <button className={unit===buttonText ? 'active-unit':'' }>°{buttonText}</button>
+  const temperatureSelectButtons = ['F', 'C'].map((buttonText,index) => {
+    const button = <button key={`unitButton${index}`} className={unit===buttonText ? 'active-unit':'' }>°{buttonText}</button>
     return button
 
   })
