@@ -1,52 +1,50 @@
-.searchPlacesForm{
-  background: #1E213A;
+.searchPlacesForm {
+  background: #1e213a;
   position: absolute;
-  top: 0px;
+  top:0;
   left: 0px;
   bottom: 0px;
   z-index: 35;
-  width: 100%;  
-  transition: all 0.2s ease-out;
-  
-
+  width: 100%;
+  animation-name: searcFormAnimation;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
 }
 
-.search-location,.cities-near{
-  width:calc( 100% - 24px );
-  
-
+.search-location,
+.cities-near {
+  width: calc(100% - 24px);
 }
 
 .search-location {
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin:60px auto 0;
+  margin: 60px auto 0;
 }
 
-.search-location-bt{
-width: 86px;
-height: 48px;
-background: #3C47E9;
-color: #E7E7EB;
-border: none;
-padding: 0 0 0 0;
-
+.search-location-bt {
+  width: 86px;
+  height: 48px;
+  background: #3c47e9;
+  color: #e7e7eb;
+  border: none;
+  padding: 0 0 0 0;
 }
 
-.search-location-input{
+.search-location-input {
   width: calc(100% - 98px);
-  padding:0 0 0 49px;
+  padding: 0 0 0 49px;
   background: none;
   border: none;
   box-sizing: border-box;
-  border: 1px solid #E7E7EB;
-  color:#616475;
+  border: 1px solid #e7e7eb;
+  color: #616475;
   font-size: 16px;
 }
 
-.search-location:before{
-  content:"";
+.search-location:before {
+  content: '';
   width: 17px;
   height: 17px;
   background: url('../../assets/weather-sprite.png') -120px 0 no-repeat;
@@ -56,20 +54,19 @@ padding: 0 0 0 0;
   left: 15px;
 }
 
-
-.close-form{
+.close-form {
   position: absolute;
-  top:17px ;
+  top: 17px;
   right: 17px;
   width: 13px;
   height: 13px;
-  padding:0 0 0 0;
+  padding: 0 0 0 0;
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.close-form span{
+.close-form span {
   display: block;
   position: relative;
   width: 13px;
@@ -78,49 +75,47 @@ padding: 0 0 0 0;
   border: 1px solid #ccc; */
 }
 
-.close-form span:before, .close-form span:after{
-  content: "";
-  position: absolute; 
+.close-form span:before,
+.close-form span:after {
+  content: '';
+  position: absolute;
   top: 0px;
-  height:18px ;
+  height: 18px;
   transform-origin: top center;
-  
 }
 
-.close-form span:before{
+.close-form span:before {
   border-left: 2px solid #fff;
-  left:-1px;
+  left: -1px;
   transform: rotate(-45deg);
 }
 
-.close-form span:after{
+.close-form span:after {
   border-left: 2px solid #fff;
-  left:11.72px;
+  left: 11.72px;
   transform: rotate(45deg);
 }
 
 .cities-near {
-  margin:38px auto 0;
+  margin: 38px auto 0;
 }
 
 .cities-near button {
   height: 64px;
   width: 100%;
   background: none;
-  border: 1px solid #1E213A;
+  border: 1px solid #1e213a;
   font-size: 16px;
-  color:#E7E7EB;
+  color: #e7e7eb;
   padding: 0 0 0 12px;
   box-sizing: border-box;
   text-align: left;
   position: relative;
-
-  
 }
 
-.cities-near button:hover, .cities-near button:focus{
+.cities-near button:hover,
+.cities-near button:focus {
   border: 1px solid #616475;
-
 }
 
 /* .cities-near button span:after{
@@ -135,25 +130,24 @@ padding: 0 0 0 0;
 
 } */
 
-.cities-near button:hover span:after, .cities-near button:focus  span:after{
-  content: "";
+.cities-near button:hover span:after,
+.cities-near button:focus span:after {
+  content: '';
   display: block;
-  position:absolute;
-  top:28px;
+  position: absolute;
+  top: 28px;
   right: 10px;
   width: 7px;
   height: 11px;
   background: url('../../assets/weather-sprite.png') -160px 0 no-repeat;
 }
 
-
-@media screen and (min-width: 768px) and (max-width: 1023px)  {
-  .cities-near{
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .cities-near {
     display: flex;
-
   }
 
-  .cities-near button{
+  .cities-near button {
     width: 25%;
     height: 40px;
   }
@@ -163,12 +157,17 @@ padding: 0 0 0 0;
     top:14px;
   } */
 
-  .cities-near button:hover span:after, .cities-near button:focus  span:after{
-    top:14px;
-
+  .cities-near button:hover span:after,
+  .cities-near button:focus span:after {
+    top: 14px;
   }
-
 }
 
-
-
+@keyframes searcFormAnimation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
