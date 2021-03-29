@@ -4,7 +4,7 @@ import CurrentLocationButton from '../currentLocationButton/currentLocationButto
 import CurrentSituation from '../currentSituation/currentSituation';
 import DateAndLocation from '../dateAndLocation/dateAndLocation';
 import SearchPlacesForm from '../searchPlacesForm/searchPlacesForm';
-import axios from 'axios';
+import { skipCors } from '../../utilities/skipCors/skipCors'
 import './current.css';
 
 
@@ -19,18 +19,11 @@ const Current: React.FC = () => {
 
   console.log(searchPlacevisible)
 
-  const skipCorsURL = 'http://localhost:4152/' 
-  const apiBaseUrl = 'https://www.metaweather.com/api/location/search/?'
-  const apiQuery = 'query=SAN'
-  // console.log(`${skipCorsURL}${apiBaseUrl}${apiQuery}`)
-  axios
-      .get(`${skipCorsURL}${apiBaseUrl}${apiQuery}`)
-      .then((response) => {
-        console.log('SUCCES',response.data);
-      })
-      .catch((error) => {
-        console.log('AXIOS ERROR', error)
-      });
+  // const skipCorsURL = 'http://localhost:4152/';
+// const apiBaseUrl = 'https://www.metaweather.com/api/location/search/?';
+// const apiQuery = 'query=SAN';
+
+skipCors('https://www.metaweather.com/api/location/search/?','http://localhost:4152/','query=SAN')
 
   const showSearch = () => {
     console.log('showSearch Called');
