@@ -19,11 +19,8 @@ const Current: React.FC = () => {
 
   console.log(searchPlacevisible)
 
-  // const skipCorsURL = 'http://localhost:4152/';
-// const apiBaseUrl = 'https://www.metaweather.com/api/location/search/?';
-// const apiQuery = 'query=SAN';
 
-skipCors('https://www.metaweather.com/api/location/search/?','http://localhost:4152/','query=SAN')
+  
 
   const showSearch = () => {
     console.log('showSearch Called');

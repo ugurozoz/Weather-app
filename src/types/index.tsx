@@ -4,3 +4,10 @@ export interface forecastValues {
   temperatureMax: string;
   temperatureMin: string;
 }
+
+export interface location {
+  latt_long:string;
+  location_type:string;
+  title:string;
+  woeid:number;
+}
