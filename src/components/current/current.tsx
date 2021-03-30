@@ -54,8 +54,8 @@ const Current: React.FC = () => {
           location='Helsinki'
         />
       </div>
-
-      <SearchPlacesForm formVisible={searchPlacevisible} hideForm={hideSearch} />
+      {searchPlacevisible && <SearchPlacesForm formVisible={searchPlacevisible} hideForm={hideSearch} /> }
+      
     </>
   );
 };

@@ -8,22 +8,40 @@ interface searchForm {
   hideForm: () => void;
 }
 
+interface iSearch {
+  found: null | boolean;
+  searching: boolean;
+}
+
 const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }) => {
   const [results, setResults] = useState([]);
+  const [found, setFound] = useState<iSearch>({
+    searching: false,
+    found: null,
+  });
+
+  // useEffect(() => {
+  //   setFound({ searching: false, found: null });
+  // }, []);
 
   const srcInput = useRef<HTMLInputElement | null>(null);
 
   const onSubmitHandler = () => {
-    setResults([])
+    setResults([]);
+    setFound({ searching: true, found: null });
     const searchTerm = `query=${srcInput.current?.value}`;
-    console.log('searchTerm', searchTerm);
     skipCors(
       'https://www.metaweather.com/api/location/search/?',
       'http://localhost:4152/',
       searchTerm
     ).then((data) => {
-      console.log(data);
-      setResults(data);
+      if (data) {
+        setResults(data);
+        setFound({ searching: false, found: true });
+      } else {
+        setResults([]);
+        setFound({ searching: false, found: false });
+      }
     });
   };
 
@@ -34,6 +52,14 @@ const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }) => {
       </button>
     );
   });
+
+  const searchResultsElements = () => {
+    if (found.searching)
+      return <div className='Search-in-progress'> Search in progress</div>;
+    if (!found.searching && found.found) return searchResults;
+    if (!found.searching && found.found === false)
+      return <div className='not-found'>Not found</div>;
+  };
 
   return formVisible ? (
     <div className='searchPlacesForm'>
@@ -51,9 +77,7 @@ const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }) => {
           onClick={onSubmitHandler}
         />
       </div>
-      <div className='cities-near'>
-        {searchResults}
-      </div>
+      <div className='cities-near'>{searchResultsElements()}</div>
       <button className='close-form' onClick={hideForm}>
         <span></span>
       </button>

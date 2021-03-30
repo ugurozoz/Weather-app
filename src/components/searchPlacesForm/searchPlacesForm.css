@@ -6,9 +6,14 @@
   bottom: 0px;
   z-index: 35;
   width: 100%;
-  animation-name: searcFormAnimation;
-  animation-duration: .3s;
+  animation-name: searchFormAnimation;
+  animation-duration: .2s;
   animation-timing-function: ease-out;
+}
+
+.current {
+  perspective: 200px;
+  perspective-origin: center top;
 }
 
 .search-location,
@@ -41,6 +46,7 @@
   border: 1px solid #e7e7eb;
   color: #616475;
   font-size: 16px;
+  
 }
 
 .search-location:before {
@@ -64,6 +70,8 @@
   background: none;
   border: none;
   cursor: pointer;
+
+  
 }
 
 .close-form span {
@@ -163,11 +171,51 @@
   }
 }
 
-@keyframes searcFormAnimation {
+
+.Search-in-progress,.not-found {
+  color:#e7e7eb;
+  text-align: center;
+  padding:20px auto;
+}
+
+.Search-in-progress:after{
+  content:"";
+  animation-name: searchResultsAnimation;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+
+}
+
+
+
+@keyframes searchFormAnimation {
   0% {
-    left: -100%;
+    /*left: -100%;*/
+    transform: translateZ(25px);
+    opacity: 0;
   }
   100% {
-    left: 0;
+    /*left: 0;*/
+    transform: translateZ(0px);
+    opacity: 1;
   }
 }
+
+@keyframes searchResultsAnimation {
+  0% {
+    content:"";
+  }
+  33% {
+    content:".";
+  }
+  66% {
+    content:"..";
+  }
+  100% {
+    content:"...";
+  }
+}
+
+
+
+
