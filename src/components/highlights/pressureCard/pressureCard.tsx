@@ -9,7 +9,7 @@ interface pressureCardParams {
 const pressureCard: React.FC<pressureCardParams> = ({
   pressureAmountNumber,
   pressureUnit
-}) => {
+}):JSX.Element => {
   return (
     <HighlightCard cardTitle='Air Pressure' cardName='pressure'>
       <div className='pressureAmount'>

@@ -13,7 +13,7 @@ interface iSearch {
   searching: boolean;
 }
 
-const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }) => {
+const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }):JSX.Element => {
   const [results, setResults] = useState([]);
   const [found, setFound] = useState<iSearch>({
     searching: false,
@@ -82,7 +82,7 @@ const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }) => {
         <span></span>
       </button>
     </div>
-  ) : null;
+  ) : <div></div>;
 };
 
 export default SearchPlacesForm;

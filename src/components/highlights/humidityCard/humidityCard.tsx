@@ -8,7 +8,7 @@ interface humidityCardParams {
 
 const humidityCard: React.FC<humidityCardParams> = ({
   humidityPercent
-}) => {
+}):JSX.Element => {
   return (
     <HighlightCard cardTitle='Humidity' cardName='humidity'>
       <div className='humidityPercent'>

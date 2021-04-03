@@ -5,7 +5,7 @@ interface searchPlaces {
 }
 
 
-const searchPlacesButton:React.FC<searchPlaces> = ({onClickHandler}) => {
+const searchPlacesButton:React.FC<searchPlaces> = ({onClickHandler}):JSX.Element => {
   return (
     <button className='searchPlacesButton' onClick={onClickHandler}>
       <span>Seach for places</span>

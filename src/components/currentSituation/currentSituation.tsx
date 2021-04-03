@@ -11,7 +11,7 @@ const currentSituation: React.FC<situation> = ({
   image,
   temperature,
   situationName,
-}) => {
+}): JSX.Element => {
   const weatherIcon = `/assets/${image}`;
   return (
     <>

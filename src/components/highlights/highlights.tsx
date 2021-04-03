@@ -4,7 +4,7 @@ import HumidityCard from './humidityCard/humidityCard';
 import VisibilityCard from './visibilityCard/visibilityCard';
 import PressureCard from './pressureCard/pressureCard';
 
-const highlights: React.FC = () => {
+const highlights: React.FC = ():JSX.Element => {
   return (
     <div className='highlights'>
       <h1>Today’s Hightlights </h1>

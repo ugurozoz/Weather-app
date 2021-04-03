@@ -35,7 +35,7 @@ const dummyForecasts = [
   },
 ];
 
-const forecatsHighlights: React.FC = () => {
+const forecatsHighlights: React.FC = ():JSX.Element => {
   return (
     <>
       <UnitSelect unit='F' />

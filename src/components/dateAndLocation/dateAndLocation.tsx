@@ -10,7 +10,7 @@ const DateAndLocation: React.FC<dateAndLocation> = ({
   weatherDay,
   weatherDate,
   location,
-}) => {
+}): JSX.Element => {
   return (
     <>
       <div className='DateAndLocation'>

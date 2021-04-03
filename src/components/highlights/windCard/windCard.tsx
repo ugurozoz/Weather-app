@@ -14,7 +14,7 @@ const windCard: React.FC<windCardParams> = ({
   windDirection,
   windDirectionCompass,
   speedUnit,
-}) => {
+}):JSX.Element => {
   return (
     <HighlightCard cardTitle='Wind status' cardName='wind'>
       <div className='windSpeed'>

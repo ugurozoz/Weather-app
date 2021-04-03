@@ -4,7 +4,7 @@ interface temperatureUnit {
   unit: 'F' | 'C';
 }
 
-const unitSelect: React.FC<temperatureUnit> = ({ unit }) => {
+const unitSelect: React.FC<temperatureUnit> = ({ unit }):JSX.Element => {
   const temperatureSelectButtons = ['F', 'C'].map((buttonText,index) => {
     const button = <button key={`unitButton${index}`} className={unit===buttonText ? 'active-unit':'' }>°{buttonText}</button>
     return button

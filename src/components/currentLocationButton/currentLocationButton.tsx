@@ -1,6 +1,6 @@
 import './currentLocationButton.css';
 
-const searchPlacesButton:React.FC = () => {
+const searchPlacesButton:React.FC = (): JSX.Element => {
   return (
     <button className='currentLocationButton'>
       <span></span>
