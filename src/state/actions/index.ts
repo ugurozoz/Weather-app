@@ -1,6 +1,5 @@
 import { ActionType } from './../action-types/';
 
-
 export type DummyType = 'up' | 'down';
 
 export interface RunDummyAction0 {
@@ -11,7 +10,6 @@ export interface RunDummyAction0 {
   };
 }
 
-
 export interface RunDummyAction1 {
   type: ActionType.DUMMY_ACTION_1;
   payload: {
@@ -20,9 +18,29 @@ export interface RunDummyAction1 {
   };
 }
 
+export interface FetchWeatherStartAction {
+  type: ActionType.FETCH_WEATHER_START;
+}
 
+export interface FetchWeatherCompleteAction {
+  type: ActionType.FETCH_WEATHER_COMPLETE;
+  payload?: {};
+}
 
+export interface FetchWeatherFailAction {
+  type: ActionType.FETCH_WEATHER_FAIL;
+  payload?: {};
+}
+
+export interface FetchWeatherAction {
+  type: ActionType.FETCH_WEATHER;
+  payload?: {};
+}
 
 export type Action =
   | RunDummyAction0
   | RunDummyAction1
+  | FetchWeatherStartAction
+  | FetchWeatherCompleteAction
+  | FetchWeatherFailAction
+  | FetchWeatherAction;

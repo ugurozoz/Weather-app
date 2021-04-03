@@ -5,9 +5,17 @@ import { ActionType } from '../action-types';
 import {
   RunDummyAction0,
   RunDummyAction1,
+  FetchWeatherStartAction,
+  FetchWeatherCompleteAction,
+  FetchWeatherFailAction,
+  FetchWeatherAction,
 } from '../actions';
 import { RootState } from '../../state';
 
+
+export const FetchWeather = () => {
+  
+}
 // export const updateCell = (id: string, content: string): UpdateCellAction => {
 //   return {
 //     type: ActionType.UPDATE_CELL,
@@ -101,7 +109,7 @@ import { RootState } from '../../state';
 //     const cells = order.map((id) => data[id]);
 //     console.log({ cells })
 //     try {
-      
+
 //       await axios.post('/cells', { cells });
 //     } catch (err) {
 //       dispatch({

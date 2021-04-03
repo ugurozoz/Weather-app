@@ -14,7 +14,7 @@ declare global {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Modified for redux developer tools
 //export const store = createStore(reducers, {}, applyMiddleware(thunk));
-export const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(persistMiddleWare,thunk)));
+export const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(thunk)));
 
 
 //MANUAL TEST
