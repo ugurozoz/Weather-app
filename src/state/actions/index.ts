@@ -29,13 +29,10 @@ export interface FetchWeatherCompleteAction {
 
 export interface FetchWeatherFailAction {
   type: ActionType.FETCH_WEATHER_FAIL;
-  payload?: {};
+  payload: string;
 }
 
-export interface FetchWeatherAction {
-  type: ActionType.FETCH_WEATHER;
-  payload?: {};
-}
+
 
 export type Action =
   | RunDummyAction0
@@ -43,4 +40,3 @@ export type Action =
   | FetchWeatherStartAction
   | FetchWeatherCompleteAction
   | FetchWeatherFailAction
-  | FetchWeatherAction;

@@ -1,3 +1,4 @@
+import { ActionType } from './action-types/index';
 import { createStore, applyMiddleware, compose  } from "redux";
 import thunk from "redux-thunk";
 import reducers from "./reducers";
@@ -18,10 +19,15 @@ export const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(
 
 
 //MANUAL TEST
-// store.dispatch({
-//   type: ActionType.INSERT_CELL_AFTER,
-//   payload: { id: null, type: 'code'}
-// })
+store.dispatch({
+  type: ActionType.FETCH_WEATHER_FAIL,
+  payload: "Error"
+})
+
+store.dispatch({
+  type: ActionType.FETCH_WEATHER_COMPLETE,
+  payload: "Error"
+})
 
 // store.dispatch({
 //   type: ActionType.INSERT_CELL_AFTER,

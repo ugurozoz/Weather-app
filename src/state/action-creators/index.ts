@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
-
+import { Weather } from '../../types/index';
 import { ActionType } from '../action-types';
 import {
   RunDummyAction0,
@@ -8,14 +8,52 @@ import {
   FetchWeatherStartAction,
   FetchWeatherCompleteAction,
   FetchWeatherFailAction,
-  FetchWeatherAction,
+  Action,
 } from '../actions';
 import { RootState } from '../../state';
 
+const apiURL = 'https://www.metaweather.com/api/location/';
 
-export const FetchWeather = () => {
-  
-}
+const fetchWeatherStart = (): FetchWeatherStartAction => {
+  return {
+    type: ActionType.FETCH_WEATHER_START,
+  };
+};
+
+const fetchWeatherFail = (error: string): FetchWeatherFailAction => {
+  return {
+    type: ActionType.FETCH_WEATHER_FAIL,
+    payload: error,
+  };
+};
+
+const fetchWeatherComplete = (data: Weather): FetchWeatherCompleteAction => {
+  return {
+    type: ActionType.FETCH_WEATHER_COMPLETE,
+    payload: data,
+  };
+};
+
+export const fetchWeather = () => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({ type: ActionType.FETCH_WEATHER_START });
+    const woeid = '44418'; //Where On Earth ID
+    const url = `${apiURL}${woeid}/`;
+    console.log('url', url);
+    try {
+      const response = await axios.get<Weather>(url);
+      dispatch<FetchWeatherCompleteAction>({
+        type: ActionType.FETCH_WEATHER_COMPLETE,
+        payload: response.data,
+      });
+    } catch (error) {
+      dispatch<FetchWeatherFailAction>({
+        type: ActionType.FETCH_WEATHER_FAIL,
+        payload: error.message,
+      });
+    }
+  };
+};
 // export const updateCell = (id: string, content: string): UpdateCellAction => {
 //   return {
 //     type: ActionType.UPDATE_CELL,
