@@ -27,3 +27,16 @@ export interface Weather {
   latt_long: string;
   timezone: string;
 }
+
+export interface WeatherState {
+  temperature: string;
+  situation: string;
+  nextFiveDays: [];
+  windSpeed: number;
+  windDirection: number;
+  windDirectionCompass: string;
+  humidity: number;
+  visibility: number;
+  airPressure: number;
+  loading: boolean;
+}

@@ -1,21 +1,10 @@
-import { Weather } from './../../types/index';
+import { Weather, WeatherState } from './../../types/index';
 import { ActionType } from './../action-types';
 import { Action } from './../actions';
 
-interface weatherState {
-  temperature: string;
-  situation: string;
-  nextFiveDays: [];
-  windSpeed: number;
-  windDirection: number;
-  windDirectionCompass: string;
-  humidity: number;
-  visibility: number;
-  airPressure: number;
-  loading: boolean;
-}
 
-const initialState: weatherState = {
+
+const initialState: WeatherState = {
   temperature: '',
   situation: '',
   nextFiveDays: [],
@@ -28,22 +17,22 @@ const initialState: weatherState = {
   loading: false,
 };
 
-const fetchWeatherStart = (state: weatherState) => {
+const fetchWeatherStart = (state: WeatherState) => {
   console.log();
   return state;
 };
 
-const fetchWeatherFail = (action: Action, state: weatherState) => {
+const fetchWeatherFail = (action: Action, state: WeatherState) => {
   console.log(action, state);
   return state;
 };
 
-const fetchWeatherComplete = (action: Action, state: weatherState) => {
+const fetchWeatherComplete = (action: Action, state: WeatherState) => {
   console.log(action, 'FIFI');
   return state;
 };
 
-const reducer = (state: weatherState = initialState, action: Action) => {
+const reducer = (state: WeatherState = initialState, action: Action):WeatherState => {
   switch (action.type) {
     case ActionType.FETCH_WEATHER_START:
       return fetchWeatherStart(state);

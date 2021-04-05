@@ -1,10 +1,11 @@
-import { combineReducers } from "redux";
-import weatherReducer from "./weather";
-import settingsReducer from "./settings";
+import { combineReducers } from 'redux';
+import weatherReducer from './weather';
+import settingsReducer from './settings';
+import { WeatherState } from '../../types/index';
 
 const reducers = combineReducers({
   weather: weatherReducer,
-  settings: settingsReducer
+  settings: settingsReducer,
 });
 
 export default reducers;

@@ -14,30 +14,30 @@ import { RootState } from '../../state';
 
 const apiURL = 'https://www.metaweather.com/api/location/';
 
-const fetchWeatherStart = (): FetchWeatherStartAction => {
+export const fetchWeatherStart = (): FetchWeatherStartAction => {
   return {
     type: ActionType.FETCH_WEATHER_START,
   };
 };
 
-const fetchWeatherFail = (error: string): FetchWeatherFailAction => {
+export const fetchWeatherFail = (error: string): FetchWeatherFailAction => {
   return {
     type: ActionType.FETCH_WEATHER_FAIL,
     payload: error,
   };
 };
 
-const fetchWeatherComplete = (data: Weather): FetchWeatherCompleteAction => {
+export const fetchWeatherComplete = (data: Weather): FetchWeatherCompleteAction => {
   return {
     type: ActionType.FETCH_WEATHER_COMPLETE,
     payload: data,
   };
 };
 
-export const fetchWeather = () => {
+export const fetchWeather = (woeid: number = 44418) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({ type: ActionType.FETCH_WEATHER_START });
-    const woeid = '44418'; //Where On Earth ID
+    // const woeid = '44418'; //Where On Earth ID
     const url = `${apiURL}${woeid}/`;
     console.log('url', url);
     try {
