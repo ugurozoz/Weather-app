@@ -20,6 +20,7 @@ export interface RunDummyAction1 {
 
 export interface FetchWeatherStartAction {
   type: ActionType.FETCH_WEATHER_START;
+  payload?: string;
 }
 
 export interface FetchWeatherCompleteAction {

@@ -11,6 +11,7 @@ import {
   Action,
 } from '../actions';
 import { RootState } from '../../state';
+import { skipCors } from '../../utilities/skipCors/skipCors';
 
 const apiURL = 'https://www.metaweather.com/api/location/';
 
@@ -27,7 +28,9 @@ export const fetchWeatherFail = (error: string): FetchWeatherFailAction => {
   };
 };
 
-export const fetchWeatherComplete = (data: Weather): FetchWeatherCompleteAction => {
+export const fetchWeatherComplete = (
+  data: Weather
+): FetchWeatherCompleteAction => {
   return {
     type: ActionType.FETCH_WEATHER_COMPLETE,
     payload: data,
@@ -39,12 +42,12 @@ export const fetchWeather = (woeid: number = 44418) => {
     dispatch({ type: ActionType.FETCH_WEATHER_START });
     // const woeid = '44418'; //Where On Earth ID
     const url = `${apiURL}${woeid}/`;
-    console.log('url', url);
+
     try {
-      const response = await axios.get<Weather>(url);
+      const response = await skipCors(url, 'http://localhost:4152/', '');
       dispatch<FetchWeatherCompleteAction>({
         type: ActionType.FETCH_WEATHER_COMPLETE,
-        payload: response.data,
+        payload: response,
       });
     } catch (error) {
       dispatch<FetchWeatherFailAction>({

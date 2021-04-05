@@ -1,8 +1,6 @@
 import { Weather, WeatherState } from './../../types/index';
 import { ActionType } from './../action-types';
-import { Action } from './../actions';
-
-
+import { Action, FetchWeatherCompleteAction } from './../actions';
 
 const initialState: WeatherState = {
   temperature: '',
@@ -18,21 +16,23 @@ const initialState: WeatherState = {
 };
 
 const fetchWeatherStart = (state: WeatherState) => {
-  console.log();
-  return state;
+  return { ...state, loading: true };
 };
 
 const fetchWeatherFail = (action: Action, state: WeatherState) => {
   console.log(action, state);
-  return state;
+  return { ...state, loading: false };
 };
 
-const fetchWeatherComplete = (action: Action, state: WeatherState) => {
-  console.log(action, 'FIFI');
-  return state;
+const fetchWeatherComplete = (action: Action , state: WeatherState) => {
+  console.log(action.payload, 'FIFI');
+  return { ...state, loading: false };
 };
 
-const reducer = (state: WeatherState = initialState, action: Action):WeatherState => {
+const reducer = (
+  state: WeatherState = initialState,
+  action: Action
+): WeatherState => {
   switch (action.type) {
     case ActionType.FETCH_WEATHER_START:
       return fetchWeatherStart(state);

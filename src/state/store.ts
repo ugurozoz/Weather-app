@@ -19,15 +19,15 @@ export const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(
 
 
 //MANUAL TEST
-store.dispatch({
-  type: ActionType.FETCH_WEATHER_FAIL,
-  payload: "Error"
-})
+// store.dispatch({
+//   type: ActionType.FETCH_WEATHER_FAIL,
+//   payload: "Error"
+// })
 
-store.dispatch({
-  type: ActionType.FETCH_WEATHER_COMPLETE,
-  payload: "Error"
-})
+// store.dispatch({
+//   type: ActionType.FETCH_WEATHER_COMPLETE,
+//   payload: "Error"
+// })
 
 // store.dispatch({
 //   type: ActionType.INSERT_CELL_AFTER,
