@@ -6,32 +6,34 @@ export interface forecastValues {
 }
 
 export interface location {
-  latt_long:string;
-  location_type:string;
-  title:string;
-  woeid:number;
+  latt_long: string;
+  location_type: string;
+  title: string;
+  woeid: number;
 }
 
-
 export interface Weather {
-  consolidated_weather: [];
-  time: string;
-  sun_rise: string;
-  sun_set: string;
-  timezone_name: string;
-  parent: {};
-  sources: [];
-  title: string;
-  location_type: string;
-  woeid: number;
-  latt_long: string;
-  timezone: string;
+  air_pressure: number;
+  applicable_date: string;
+  created: string;
+  humidity: number;
+  id: number;
+  max_temp: number;
+  min_temp: number;
+  predictability: number;
+  the_temp: number;
+  visibility: number;
+  weather_state_abbr: string;
+  weather_state_name: string;
+  wind_direction: number;
+  wind_direction_compass: string;
+  wind_speed: number;
 }
 
 export interface WeatherState {
-  temperature: string;
+  temperature: number;
   situation: string;
-  nextFiveDays: [];
+  nextFiveDays: Weather[];
   windSpeed: number;
   windDirection: number;
   windDirectionCompass: string;

@@ -29,7 +29,7 @@ export const fetchWeatherFail = (error: string): FetchWeatherFailAction => {
 };
 
 export const fetchWeatherComplete = (
-  data: Weather
+  data: Weather[]
 ): FetchWeatherCompleteAction => {
   return {
     type: ActionType.FETCH_WEATHER_COMPLETE,
@@ -47,7 +47,7 @@ export const fetchWeather = (woeid: number = 44418) => {
       const response = await skipCors(url, 'http://localhost:4152/', '');
       dispatch<FetchWeatherCompleteAction>({
         type: ActionType.FETCH_WEATHER_COMPLETE,
-        payload: response,
+        payload: response.consolidated_weather,
       });
     } catch (error) {
       dispatch<FetchWeatherFailAction>({

@@ -1,4 +1,6 @@
+
 import { ActionType } from './../action-types/';
+import { Weather } from '../../types/'
 
 export type DummyType = 'up' | 'down';
 
@@ -25,7 +27,7 @@ export interface FetchWeatherStartAction {
 
 export interface FetchWeatherCompleteAction {
   type: ActionType.FETCH_WEATHER_COMPLETE;
-  payload?: {};
+  payload: Weather[];
 }
 
 export interface FetchWeatherFailAction {
