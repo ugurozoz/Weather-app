@@ -10,6 +10,7 @@ export interface location {
   location_type: string;
   title: string;
   woeid: number;
+  loading: boolean;
 }
 
 export interface Weather {
@@ -42,4 +43,10 @@ export interface WeatherState {
   airPressure: number;
   loading: boolean;
   weatherDate: string;
+}
+
+export interface Settings {  
+  weatherUnit: 'F' | 'C';
+  distanceUnit: 'miles' | 'Kilometers';
+  speedUnit: 'mph' | 'kmph';
 }

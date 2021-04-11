@@ -1,6 +1,6 @@
-
 import { ActionType } from './../action-types/';
-import { Weather } from '../../types/'
+import { Weather, Settings, location } from '../../types/';
+
 
 export type DummyType = 'up' | 'down';
 
@@ -35,7 +35,33 @@ export interface FetchWeatherFailAction {
   payload: string;
 }
 
+export interface changeSettingsStartAction {
+  type: ActionType.CHANGE_SETTINGS_START;
+  payload: Settings;
+}
 
+export interface changeSettingsCompleteAction {
+  type: ActionType.CHANGE_SETTINGS_COMPLETE;
+}
+
+export interface changeSettingsFailAction {
+  type: ActionType.CHANGE_SETTINGS_FAIL;
+  payload: string;
+}
+
+export interface getCityWoeidStartAction {
+  type: ActionType.GET_CITY_WOEID_START;
+}
+
+export interface getCityWoeidCompleteAction {
+  type: ActionType.GET_CITY_WOEID_COMPLETE;
+  payload:location
+}
+
+export interface getCityWoeidFailAction {
+  type: ActionType.GET_CITY_WOEID_FAIL;
+  payload: string;
+}
 
 export type Action =
   | RunDummyAction0
@@ -43,3 +69,9 @@ export type Action =
   | FetchWeatherStartAction
   | FetchWeatherCompleteAction
   | FetchWeatherFailAction
+  | changeSettingsStartAction
+  | changeSettingsCompleteAction
+  | changeSettingsFailAction
+  | getCityWoeidStartAction
+  | getCityWoeidCompleteAction
+  | getCityWoeidFailAction;

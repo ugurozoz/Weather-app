@@ -1,3 +1,4 @@
+import { location } from './../../types/index';
 import { Dispatch } from 'redux';
 import axios from 'axios';
 import { Weather } from '../../types/index';
@@ -8,6 +9,9 @@ import {
   FetchWeatherStartAction,
   FetchWeatherCompleteAction,
   FetchWeatherFailAction,
+  getCityWoeidStartAction,
+  getCityWoeidCompleteAction,
+  getCityWoeidFailAction,
   Action,
 } from '../actions';
 import { RootState } from '../../state';
@@ -57,6 +61,51 @@ export const fetchWeather = (woeid: number = 44418) => {
     }
   };
 };
+
+export const getCityWoeidStart = (): getCityWoeidStartAction => {
+  return {
+    type: ActionType.GET_CITY_WOEID_START,
+  };
+};
+
+export const getCityWoeidFail = (error: string): getCityWoeidFailAction => {
+  return {
+    type: ActionType.GET_CITY_WOEID_FAIL,
+    payload: error,
+  };
+};
+
+export const getCityWoeidComplete = (
+  data: location
+): getCityWoeidCompleteAction => {
+  return {
+    type: ActionType.GET_CITY_WOEID_COMPLETE,
+    payload: data,
+  };
+};
+
+export const getCityWoeid = (city: string) => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({ type: ActionType.GET_CITY_WOEID_START });
+    const url = `${apiURL}search/?query=${city}`;
+    console.log('GET WOID', url);
+
+    try {
+      const response = await skipCors(url, 'http://localhost:4152/', '');
+      console.log('WOID RESULT', response);
+      dispatch<getCityWoeidCompleteAction>({
+        type: ActionType.GET_CITY_WOEID_COMPLETE,
+        payload: response[0],
+      });
+    } catch (error) {
+      dispatch<getCityWoeidFailAction>({
+        type: ActionType.GET_CITY_WOEID_FAIL,
+        payload: error.message,
+      });
+    }
+  };
+};
+
 // export const updateCell = (id: string, content: string): UpdateCellAction => {
 //   return {
 //     type: ActionType.UPDATE_CELL,

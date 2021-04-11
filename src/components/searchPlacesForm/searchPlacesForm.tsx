@@ -35,12 +35,14 @@ const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }):JSX.E
       'http://localhost:4152/',
       searchTerm
     ).then((data) => {
-      if (data) {
+      if (data.length > 0) {
         setResults(data);
         setFound({ searching: false, found: true });
+        
       } else {
         setResults([]);
         setFound({ searching: false, found: false });
+        
       }
     });
   };

@@ -17,5 +17,6 @@ export const skipCors = async (
     })
     .catch((error) => {
       console.log('AXIOS ERROR', error);
+      return error
     });
 };
