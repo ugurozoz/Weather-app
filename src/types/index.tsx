@@ -41,4 +41,5 @@ export interface WeatherState {
   visibility: number;
   airPressure: number;
   loading: boolean;
+  weatherDate: string;
 }

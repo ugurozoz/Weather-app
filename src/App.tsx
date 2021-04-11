@@ -25,19 +25,37 @@ function App() {
         loading,
       },
     }) => {
-      return { temperature, situation, nextFiveDays };
+      const params = {
+        currentParams: {
+          temperature,
+          situation,
+        },
+        forecastsParams: {
+          nextFiveDays,
+          windSpeed,
+          windDirection,
+          windDirectionCompass,
+          humidity,
+          visibility,
+          airPressure,
+        },
+      };
+      return params;
     }
   );
   const { fetchWeather } = useActions();
 
-  useEffect(() => {
+  useEffect(() => {    
     fetchWeather();
+    console.log(weatherParams.currentParams)
   }, []);
+
+
   return (
     <div className='App'>
       <main>
         <section className='current'>
-          <Current />
+          <Current currentParams = {weatherParams.currentParams} />
         </section>
         <section className='forecasts-highlights'>
           <ForecatsHighlights />

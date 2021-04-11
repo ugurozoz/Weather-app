@@ -1,4 +1,4 @@
-import { Weather, WeatherState } from './../../types/index';
+import { WeatherState } from './../../types/index';
 import { ActionType } from './../action-types';
 import { Action, FetchWeatherCompleteAction } from './../actions';
 
@@ -13,6 +13,7 @@ const initialState: WeatherState = {
   visibility: 0,
   airPressure: 0,
   loading: false,
+  weatherDate: '',
 };
 
 const fetchWeatherStart = (state: WeatherState) => {

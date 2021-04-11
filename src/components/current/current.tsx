@@ -4,23 +4,25 @@ import CurrentLocationButton from '../currentLocationButton/currentLocationButto
 import CurrentSituation from '../currentSituation/currentSituation';
 import DateAndLocation from '../dateAndLocation/dateAndLocation';
 import SearchPlacesForm from '../searchPlacesForm/searchPlacesForm';
-import { skipCors } from '../../utilities/skipCors/skipCors'
+import { skipCors } from '../../utilities/skipCors/skipCors';
 import './current.css';
 
+interface Values {
+  currentParams: {
+    temperature: number;
+    situation: string;
+  };
+}
 
-
-const Current: React.FC = () => {
-  console.log("CURRENT COMPONENT")
+const Current: React.FC<Values> = ({ currentParams }: Values) => {
+  //console.log(temperature,situation)
 
   const [searchPlacevisible, setSearchPlacevisible] = useState(false);
   useEffect(() => {
-    console.log("CURRENT RENDERED")
-  }, [searchPlacevisible])
+    console.log('CURRENT RENDERED');
+  }, [searchPlacevisible]);
 
-  console.log(searchPlacevisible)
-
-
-  
+  console.log(searchPlacevisible);
 
   const showSearch = () => {
     console.log('showSearch Called');
@@ -34,7 +36,10 @@ const Current: React.FC = () => {
     console.log(searchPlacevisible);
   };
 
+  const imagePath = `${currentParams.situation.toString()}.png`;
+  console.log(imagePath)
   return (
+    
     <>
       <div className='current__top'>
         <SearchPlacesButton onClickHandler={showSearch} />
@@ -42,9 +47,9 @@ const Current: React.FC = () => {
       </div>
       <div className='current__mid'>
         <CurrentSituation
-          image='Shower.png'
-          situationName='Shower'
-          temperature='15'
+          image={imagePath}
+          situationName={currentParams.situation}
+          temperature= {Math.floor(currentParams.temperature)}
         />
       </div>
       <div className='current__bottom'>
@@ -54,8 +59,12 @@ const Current: React.FC = () => {
           location='Helsinki'
         />
       </div>
-      {searchPlacevisible && <SearchPlacesForm formVisible={searchPlacevisible} hideForm={hideSearch} /> }
-      
+      {searchPlacevisible && (
+        <SearchPlacesForm
+          formVisible={searchPlacevisible}
+          hideForm={hideSearch}
+        />
+      )}
     </>
   );
 };

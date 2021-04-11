@@ -3,7 +3,7 @@ import './currentSituation.css';
 
 interface situation {
   image: string;
-  temperature: string;
+  temperature: number;
   situationName: string;
 }
 
