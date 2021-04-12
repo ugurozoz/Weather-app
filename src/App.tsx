@@ -45,7 +45,6 @@ function App() {
       return params;
     }
   );
-  
 
   const checkStorage = () => {
     const myLocation = localStorage.getItem('location');
@@ -70,16 +69,12 @@ function App() {
     checkStorage();
   }, []);
 
- 
-  
   useEffect(() => {
-    fetchWeather(locationWoeid);
+    if (locationWoeid !== 0) fetchWeather(locationWoeid);
   }, [locationWoeid]);
 
-  
-
   useEffect(() => {
-    getCityWoeid(location);
+    if (location !== '') getCityWoeid(location);
   }, [location]);
 
   return (

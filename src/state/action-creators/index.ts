@@ -46,7 +46,7 @@ export const fetchWeather = (woeid: number = 44418) => {
     dispatch({ type: ActionType.FETCH_WEATHER_START });
     // const woeid = '44418'; //Where On Earth ID
     const url = `${apiURL}${woeid}/`;
-
+    console.log("FETCH WEATHER CALLED", url)
     try {
       const response = await skipCors(url, 'http://localhost:4152/', '');
       dispatch<FetchWeatherCompleteAction>({
