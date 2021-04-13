@@ -43,6 +43,7 @@ export interface WeatherState {
   airPressure: number;
   loading: boolean;
   weatherDate: string;
+  abbr: string;
 }
 
 export interface Settings {  

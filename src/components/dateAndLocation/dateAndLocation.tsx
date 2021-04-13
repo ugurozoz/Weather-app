@@ -19,9 +19,10 @@ const DateAndLocation: React.FC<dateAndLocation> = ({
           <span className='dotSpan'>•</span>
           <span className='dateSpan'>{weatherDate}</span>
         </div>
-        <div className="locationContainer"><span>{location}</span></div>
+        <div className='locationContainer'>
+          <span>{location}</span>
+        </div>
       </div>
-      
     </>
   );
 };

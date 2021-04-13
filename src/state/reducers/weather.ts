@@ -14,6 +14,7 @@ const initialState: WeatherState = {
   airPressure: 0,
   loading: false,
   weatherDate: '',
+  abbr: '',
 };
 
 const fetchWeatherStart = (state: WeatherState) => {
@@ -21,7 +22,7 @@ const fetchWeatherStart = (state: WeatherState) => {
 };
 
 const fetchWeatherFail = (action: Action, state: WeatherState) => {
-  console.log(action, state);
+  
   return { ...state, loading: false };
 };
 
@@ -42,6 +43,9 @@ const fetchWeatherComplete = (
   newState.humidity = currentValues.humidity;
   newState.visibility = currentValues.visibility;
   newState.airPressure = currentValues.air_pressure;
+  newState.abbr = currentValues.weather_state_abbr;
+  
+
   newState.loading = false;
 
   //console.log(action.payload, 'FIFI');

@@ -4,40 +4,47 @@ import CurrentLocationButton from '../currentLocationButton/currentLocationButto
 import CurrentSituation from '../currentSituation/currentSituation';
 import DateAndLocation from '../dateAndLocation/dateAndLocation';
 import SearchPlacesForm from '../searchPlacesForm/searchPlacesForm';
-import { skipCors } from '../../utilities/skipCors/skipCors';
+import { useTypedSelector } from '../../hooks/use-typed-selector';
+import { formatDate } from '../../utilities/formatDate'
 import './current.css';
 
 interface Values {
   currentParams: {
     temperature: number;
     situation: string;
+    abbr: string;    
   };
 }
 
 const Current: React.FC<Values> = ({ currentParams }: Values) => {
-  //console.log(temperature,situation)
+  
+  const weatherLocation = useTypedSelector((state) => state.location.title);
 
   const [searchPlacevisible, setSearchPlacevisible] = useState(false);
   useEffect(() => {
     console.log('CURRENT RENDERED');
   }, [searchPlacevisible]);
 
-  console.log(searchPlacevisible);
+  
 
   const showSearch = () => {
     console.log('showSearch Called');
     setSearchPlacevisible(true);
-    console.log(searchPlacevisible);
+    
   };
 
   const hideSearch = () => {
     console.log('hideSearch Called');
     setSearchPlacevisible(false);
-    console.log(searchPlacevisible);
+    
   };
 
-  const imagePath = `${currentParams.situation.toString()}.png`;
-  console.log(imagePath)
+  const imagePath = `${currentParams.abbr.toString()}.png`;
+
+  const today = new Date(Date.now());
+  const formattedDate = formatDate(today)
+  
+  
   return (
     
     <>
@@ -55,8 +62,8 @@ const Current: React.FC<Values> = ({ currentParams }: Values) => {
       <div className='current__bottom'>
         <DateAndLocation
           weatherDay='Today'
-          weatherDate='Fri, 5 Jun'
-          location='Helsinki'
+          weatherDate={formattedDate}
+          location={weatherLocation}
         />
       </div>
       {searchPlacevisible && (

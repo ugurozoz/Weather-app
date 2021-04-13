@@ -15,7 +15,7 @@ const getCityWoeidStart = (state: location) => {
 };
 
 const getCityWoeidFail = (action: Action, state: location) => {
-  console.log(action, state);
+  
   return { ...state, loading: false };
 };
 

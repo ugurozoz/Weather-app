@@ -24,6 +24,7 @@ function App() {
         humidity,
         visibility,
         airPressure,
+        abbr,
         loading,
       },
     }) => {
@@ -31,6 +32,8 @@ function App() {
         currentParams: {
           temperature,
           situation,
+          abbr,
+          
         },
         forecastsParams: {
           nextFiveDays,
@@ -47,8 +50,7 @@ function App() {
   );
 
   const checkStorage = () => {
-    const myLocation = localStorage.getItem('location');
-    console.log(myLocation);
+    const myLocation = localStorage.getItem('location');    
     if (myLocation === null) {
       skipCors('http://ip-api.com/json/', 'http://localhost:4152/', '').then(
         (data) => {
@@ -84,7 +86,8 @@ function App() {
           <Current currentParams={weatherParams.currentParams} />
         </section>
         <section className='forecasts-highlights'>
-          <ForecatsHighlights />
+          {/* <ForecatsHighlights  /> */}
+          <ForecatsHighlights forecastsParams={weatherParams.forecastsParams} />
         </section>
       </main>
     </div>
