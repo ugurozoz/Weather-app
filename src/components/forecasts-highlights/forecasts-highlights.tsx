@@ -62,18 +62,18 @@ const forecatsHighlights: React.FC<ForeCastAndHighlights> = ({
       return {
         day: dayName,
         image: `${forecast.weather_state_abbr}.png`,
-        temperatureMax: `${forecast.max_temp}°C`,
-        temperatureMin: `${forecast.min_temp}°C`,
+        temperatureMax: `${Math.floor(forecast.max_temp)}°C`,
+        temperatureMin: `${Math.floor(forecast.min_temp)}°C`,
       };
     }
   );
 
-  console.log("NEXT FIVE",nextFiveDaysValues);
+  
 
   return (
     <>
       <UnitSelect unit='F' />
-      <ForeCasts forecasts={dummyForecasts} />
+      <ForeCasts forecasts={nextFiveDaysValues} />
       <Highlights />
     </>
   );
