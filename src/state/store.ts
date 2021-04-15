@@ -1,4 +1,3 @@
-import { ActionType } from './action-types/index';
 import { createStore, applyMiddleware, compose  } from "redux";
 import thunk from "redux-thunk";
 import reducers from "./reducers";
@@ -18,10 +17,18 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(thunk)));
 
 
+
+
 //MANUAL TEST
 // store.dispatch({
-//   type: ActionType.FETCH_WEATHER_FAIL,
-//   payload: "Error"
+//   type: ActionType.SET_CITY,
+//   payload: {
+//     "title": "Paris",
+//     "location_type": "City",
+//     "woeid": 615702,
+//     "latt_long": "48.856930,2.341200",
+//     "loading":false
+//   }
 // })
 
 // store.dispatch({

@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
+import { useActions } from '../../hooks/use-actions';
 import { skipCors } from '../../utilities/skipCors/skipCors';
 import { location } from '../../types/index';
 import './searchPlacesForm.css';
@@ -13,12 +14,16 @@ interface iSearch {
   searching: boolean;
 }
 
-const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }):JSX.Element => {
+const SearchPlacesForm: React.FC<searchForm> = ({
+  formVisible,
+  hideForm,
+}): JSX.Element => {
   const [results, setResults] = useState([]);
   const [found, setFound] = useState<iSearch>({
     searching: false,
     found: null,
   });
+  const { setCity } = useActions();
 
   // useEffect(() => {
   //   setFound({ searching: false, found: null });
@@ -38,18 +43,22 @@ const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }):JSX.E
       if (data.length > 0) {
         setResults(data);
         setFound({ searching: false, found: true });
-        
       } else {
         setResults([]);
         setFound({ searching: false, found: false });
-        
       }
     });
   };
 
-  const searchResults = results.map((result: location) => {
+  const onCitySelect = (index: number): void => {
+    const cityData = results[index];
+    setCity(cityData);
+    hideForm();
+  };
+
+  const searchResults = results.map((result: location, index: number) => {
     return (
-      <button key={result.woeid}>
+      <button key={result.woeid} onClick={() => onCitySelect(index)}>
         <span>{result.title}</span>
       </button>
     );
@@ -84,7 +93,9 @@ const SearchPlacesForm: React.FC<searchForm> = ({ formVisible, hideForm }):JSX.E
         <span></span>
       </button>
     </div>
-  ) : <div></div>;
+  ) : (
+    <div></div>
+  );
 };
 
 export default SearchPlacesForm;

@@ -4,7 +4,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   placeholderImg?: string;
 }
 
-export default ({ src, placeholderImg, ...props }: ImageProps) => {
+const ImageHelper = ({ src, placeholderImg, ...props }: ImageProps) => {
   const [imgSrc, setSrc] = useState(placeholderImg || src);
   const onLoad = useCallback(() => {
     setSrc(src);
@@ -19,3 +19,5 @@ export default ({ src, placeholderImg, ...props }: ImageProps) => {
   }, [src, onLoad]);
   return <img {...props} alt={imgSrc} src={imgSrc} />;
 };
+
+export default ImageHelper

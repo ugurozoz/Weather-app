@@ -1,20 +1,17 @@
 import { location } from './../../types/index';
 import { Dispatch } from 'redux';
-import axios from 'axios';
 import { Weather } from '../../types/index';
 import { ActionType } from '../action-types';
 import {
-  RunDummyAction0,
-  RunDummyAction1,
   FetchWeatherStartAction,
   FetchWeatherCompleteAction,
   FetchWeatherFailAction,
   getCityWoeidStartAction,
   getCityWoeidCompleteAction,
   getCityWoeidFailAction,
+  setCityAction,
   Action,
 } from '../actions';
-import { RootState } from '../../state';
 import { skipCors } from '../../utilities/skipCors/skipCors';
 
 const apiURL = 'https://www.metaweather.com/api/location/';
@@ -46,7 +43,7 @@ export const fetchWeather = (woeid: number = 44418) => {
     dispatch({ type: ActionType.FETCH_WEATHER_START });
     // const woeid = '44418'; //Where On Earth ID
     const url = `${apiURL}${woeid}/`;
-    console.log("FETCH WEATHER CALLED", url)
+    console.log('FETCH WEATHER CALLED', url);
     try {
       const response = await skipCors(url, 'http://localhost:4152/', '');
       dispatch<FetchWeatherCompleteAction>({
@@ -59,6 +56,13 @@ export const fetchWeather = (woeid: number = 44418) => {
         payload: error.message,
       });
     }
+  };
+};
+
+export const setCity = (data: location): setCityAction => {
+  return {
+    type: ActionType.SET_CITY,
+    payload: data,
   };
 };
 
@@ -92,7 +96,7 @@ export const getCityWoeid = (city: string) => {
 
     try {
       const response = await skipCors(url, 'http://localhost:4152/', '');
-      console.log('WOID RESULT', response);
+      //console.log('WOID RESULT', response);
       dispatch<getCityWoeidCompleteAction>({
         type: ActionType.GET_CITY_WOEID_COMPLETE,
         payload: response[0],

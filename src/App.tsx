@@ -44,6 +44,7 @@ function App() {
           visibility,
           airPressure,
         },
+        loadingParam: { loading, }
       };
       return params;
     }
@@ -85,15 +86,20 @@ function App() {
     if (location !== '') getCityWoeid(location);
   }, [location]);
 
+  const paramsLoading = weatherParams.loadingParam.loading
   return (
     <div className='App'>
       <main>
         <section className='current'>
-          <Current currentParams={weatherParams.currentParams} />
+
+          { paramsLoading ? <div>Loading...</div> : <Current currentParams={weatherParams.currentParams} />}
+        
+          
         </section>
         <section className='forecasts-highlights'>
           {/* <ForecatsHighlights  /> */}
-          <ForecatsHighlights forecastsParams={weatherParams.forecastsParams} />
+          { paramsLoading ? <div>Loading...</div> : <ForecatsHighlights forecastsParams={weatherParams.forecastsParams} />}
+          
         </section>
       </main>
     </div>

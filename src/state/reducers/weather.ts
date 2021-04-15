@@ -12,7 +12,7 @@ const initialState: WeatherState = {
   humidity: 0,
   visibility: 0,
   airPressure: 0,
-  loading: false,
+  loading: true,
   weatherDate: '',
   abbr: '',
 };
