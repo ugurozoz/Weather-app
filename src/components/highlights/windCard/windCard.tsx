@@ -14,11 +14,12 @@ const windCard: React.FC<windCardParams> = ({
   windDirection,
   windDirectionCompass,
   speedUnit,
-}):JSX.Element => {
+}): JSX.Element => {
+  const windSpeedString = windSpeed.toFixed(1)
   return (
     <HighlightCard cardTitle='Wind status' cardName='wind'>
       <div className='windSpeed'>
-        <span className="windSpeedNumber">{windSpeed}</span>
+        <span className="windSpeedNumber">{windSpeedString}</span>
         <span className="windSpeedUnit">{speedUnit}</span>
       </div>
       <div className='windDirection'>

@@ -9,11 +9,12 @@ interface visibilityCardParams {
 const visibilityCard: React.FC<visibilityCardParams> = ({
   visibilityDistance,
   distanceUnit,
-}):JSX.Element => {
+}): JSX.Element => {
+  const visibilityDistanceString = visibilityDistance.toFixed(1)
   return (
     <HighlightCard cardTitle='Visibility' cardName='visibility'>
       <div className='visibilityDistance'>
-        <span className='visibilityDistanceNumber'>{visibilityDistance}</span>
+        <span className='visibilityDistanceNumber'>{visibilityDistanceString}</span>
         <span className='visibilityDistanceUnit'>{distanceUnit}</span>
       </div>
     </HighlightCard>

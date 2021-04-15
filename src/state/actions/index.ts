@@ -1,7 +1,6 @@
 import { ActionType } from './../action-types/';
 import { Weather, Settings, location } from '../../types/';
 
-
 export type DummyType = 'up' | 'down';
 
 export interface RunDummyAction0 {
@@ -55,7 +54,12 @@ export interface getCityWoeidStartAction {
 
 export interface getCityWoeidCompleteAction {
   type: ActionType.GET_CITY_WOEID_COMPLETE;
-  payload:location
+  payload: location;
+}
+
+export interface setCityAction {
+  type: ActionType.SET_CITY;
+  payload: location;
 }
 
 export interface getCityWoeidFailAction {
@@ -74,4 +78,5 @@ export type Action =
   | changeSettingsFailAction
   | getCityWoeidStartAction
   | getCityWoeidCompleteAction
-  | getCityWoeidFailAction;
+  | getCityWoeidFailAction
+  | setCityAction;

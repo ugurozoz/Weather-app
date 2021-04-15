@@ -4,21 +4,30 @@ import HumidityCard from './humidityCard/humidityCard';
 import VisibilityCard from './visibilityCard/visibilityCard';
 import PressureCard from './pressureCard/pressureCard';
 
-const highlights: React.FC = ():JSX.Element => {
+interface Highlights {
+  windSpeed: number;
+  windDirection: number;
+  windDirectionCompass: string;
+  humidity: number;
+  visibility: number;
+  airPressure: number;
+}
+
+const highlights: React.FC<Highlights> = (props): JSX.Element => {
+  //console.log("PROPS",props)
   return (
     <div className='highlights'>
       <h1>Today’s Hightlights </h1>
       <div className='highlights-items'>
         <WindCard
-          windSpeed={7}
-          windDirectionCompass='WSW'
-          windDirection={245}
+          windSpeed={props.windSpeed}
+          windDirectionCompass={props.windDirectionCompass}
+          windDirection={props.windDirection}
           speedUnit='mph'
         />
-        <HumidityCard humidityPercent={87} />
-        <VisibilityCard visibilityDistance={6.4} distanceUnit='miles' />
-        <PressureCard pressureAmountNumber={998}
-  pressureUnit='mb' />
+        <HumidityCard humidityPercent={props.humidity} />
+        <VisibilityCard visibilityDistance={props.visibility} distanceUnit='miles' />
+        <PressureCard pressureAmountNumber={Math.floor(props.airPressure)} pressureUnit='mb' />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { location } from './../../types/index';
 import { ActionType } from './../action-types';
-import { Action, getCityWoeidCompleteAction } from './../actions';
+import { Action, getCityWoeidCompleteAction, setCityAction } from './../actions';
 
 const initialState: location = {
   latt_long: '',
@@ -33,6 +33,20 @@ const getCityWoeidComplete = (
   return { ...newState };
 };
 
+const setCity = (
+  action: setCityAction,
+  state: location
+) => {
+  const newState = { ...state };
+  const currentValues = action.payload;
+  newState.latt_long = currentValues.latt_long;
+  newState.loading = false;
+  newState.location_type = currentValues.location_type;
+  newState.title = currentValues.title;
+  newState.woeid = currentValues.woeid
+  return { ...newState };
+};
+
 const reducer = (state: location = initialState, action: Action) => {
   switch (action.type) {
     case ActionType.GET_CITY_WOEID_START:
@@ -43,6 +57,9 @@ const reducer = (state: location = initialState, action: Action) => {
 
     case ActionType.GET_CITY_WOEID_FAIL:
       return getCityWoeidFail(action, state);
+    
+    case ActionType.SET_CITY:
+        return setCity(action, state);
 
     default:
       return state;

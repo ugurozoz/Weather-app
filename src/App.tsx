@@ -49,10 +49,9 @@ function App() {
     }
   );
 
-  const checkStorage = () => {
-    const myLocation = localStorage.getItem('location');    
-    if (myLocation === null) {
-      skipCors('http://ip-api.com/json/', 'http://localhost:4152/', '').then(
+
+  const getCurrentLocation = () => {
+    skipCors('http://ip-api.com/json/', 'http://localhost:4152/', '').then(
         (data) => {
           if (data.status === 'success') {
             localStorage.setItem('location', data.city);
@@ -62,13 +61,20 @@ function App() {
           }
         }
       );
+  }
+
+  const getLocation = () => {
+    const myLocation = localStorage.getItem('location');    
+    if (myLocation === null) {
+      getCurrentLocation();
+      
     } else {
       setLocation(myLocation);
     }
   };
 
   useEffect(() => {
-    checkStorage();
+    getLocation();
   }, []);
 
   useEffect(() => {
