@@ -17,6 +17,7 @@ main {
 
 .forecasts-highlights {
   background: #100e1d;
+  position: relative;
   
 }
 
@@ -57,3 +58,18 @@ main {
   }
   
 }
+
+
+.loading-placeholder{
+  width: 100%;
+  top:0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  position: absolute;
+  z-index: 20;
+  background-color:rgba(0,0,0,0.6);
+}
+
+.loading-placeholder span{ color:#fff}

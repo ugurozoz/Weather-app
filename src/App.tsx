@@ -33,7 +33,6 @@ function App() {
           temperature,
           situation,
           abbr,
-          
         },
         forecastsParams: {
           nextFiveDays,
@@ -44,31 +43,31 @@ function App() {
           visibility,
           airPressure,
         },
-        loadingParam: { loading, }
+        loadingParam: { loading },
       };
       return params;
     }
   );
 
-
   const getCurrentLocation = () => {
+    //console.log("LOCATION CALL")
     skipCors('http://ip-api.com/json/', 'http://localhost:4152/', '').then(
-        (data) => {
-          if (data.status === 'success') {
-            localStorage.setItem('location', data.city);
-            setLocation(data.city);
-          } else {
-            console.log('ERROR', 'Location could not be fetched');
-          }
+      (data) => {
+        //console.log("DATA >>",)
+        if (data.status === 'success') {
+          localStorage.setItem('location', data.city);
+          setLocation(data.city);
+        } else {
+          console.log('ERROR', 'Location could not be fetched');
         }
-      );
-  }
+      }
+    );
+  };
 
   const getLocation = () => {
-    const myLocation = localStorage.getItem('location');    
+    const myLocation = localStorage.getItem('location');
     if (myLocation === null) {
       getCurrentLocation();
-      
     } else {
       setLocation(myLocation);
     }
@@ -83,23 +82,32 @@ function App() {
   }, [locationWoeid]);
 
   useEffect(() => {
+    console.log(location);
     if (location !== '') getCityWoeid(location);
   }, [location]);
 
-  const paramsLoading = weatherParams.loadingParam.loading
+  const paramsLoading = weatherParams.loadingParam.loading;
   return (
     <div className='App'>
       <main>
         <section className='current'>
+          {paramsLoading ? (
+            <div className='loading-placeholder'>
+              <span>Loading...</span>
+            </div>
+          ) : null}
 
-          { paramsLoading ? <div>Loading...</div> : <Current currentParams={weatherParams.currentParams} />}
-        
-          
+          <Current currentParams={weatherParams.currentParams}
+            
+          />
         </section>
         <section className='forecasts-highlights'>
-          {/* <ForecatsHighlights  /> */}
-          { paramsLoading ? <div>Loading...</div> : <ForecatsHighlights forecastsParams={weatherParams.forecastsParams} />}
-          
+          {paramsLoading ? (
+            <div className='loading-placeholder'>
+              <span>Loading...</span>
+            </div>
+          ) : null}
+          <ForecatsHighlights forecastsParams={weatherParams.forecastsParams} />
         </section>
       </main>
     </div>

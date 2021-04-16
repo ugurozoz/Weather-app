@@ -43,7 +43,7 @@ export const fetchWeather = (woeid: number = 44418) => {
     dispatch({ type: ActionType.FETCH_WEATHER_START });
     // const woeid = '44418'; //Where On Earth ID
     const url = `${apiURL}${woeid}/`;
-    console.log('FETCH WEATHER CALLED', url);
+    //console.log('FETCH WEATHER CALLED', url);
     try {
       const response = await skipCors(url, 'http://localhost:4152/', '');
       dispatch<FetchWeatherCompleteAction>({
@@ -92,7 +92,7 @@ export const getCityWoeid = (city: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({ type: ActionType.GET_CITY_WOEID_START });
     const url = `${apiURL}search/?query=${city}`;
-    console.log('GET WOID', url);
+    //console.log('GET WOID', url);
 
     try {
       const response = await skipCors(url, 'http://localhost:4152/', '');
