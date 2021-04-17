@@ -67,6 +67,10 @@ export interface getCityWoeidFailAction {
   payload: string;
 }
 
+export interface toggleTemperatureUnitAction {
+  type: ActionType.TOGGLE_TEMPERATURE_UNIT;
+}
+
 export type Action =
   | RunDummyAction0
   | RunDummyAction1
@@ -79,4 +83,5 @@ export type Action =
   | getCityWoeidStartAction
   | getCityWoeidCompleteAction
   | getCityWoeidFailAction
-  | setCityAction;
+  | setCityAction
+  | toggleTemperatureUnitAction;

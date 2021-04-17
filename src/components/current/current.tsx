@@ -6,6 +6,7 @@ import DateAndLocation from '../dateAndLocation/dateAndLocation';
 import SearchPlacesForm from '../searchPlacesForm/searchPlacesForm';
 import { useTypedSelector } from '../../hooks/use-typed-selector';
 import { formatDate } from '../../utilities/formatDate';
+import { printDegree } from '../../utilities/printDegree';
 import './current.css';
 
 interface Values {
@@ -18,7 +19,9 @@ interface Values {
 // getCurrentLocation: () => {};
 const Current: React.FC<Values> = ({ currentParams }: Values) => {
   const weatherLocation = useTypedSelector((state) => state.location.title);
+  const temperatureUnit = useTypedSelector((state) => state.settings.weatherUnit);
 
+  console.log(temperatureUnit)
   const [searchPlacevisible, setSearchPlacevisible] = useState(false);
   useEffect(() => {}, [searchPlacevisible]);
 
@@ -45,7 +48,7 @@ const Current: React.FC<Values> = ({ currentParams }: Values) => {
         <CurrentSituation
           image={imagePath}
           situationName={currentParams.situation}
-          temperature={Math.floor(currentParams.temperature)}
+          temperature={printDegree(currentParams.temperature,temperatureUnit)}
         />
       </div>
       <div className='current__bottom'>

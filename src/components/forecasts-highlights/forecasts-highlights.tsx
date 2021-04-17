@@ -4,6 +4,7 @@ import Highlights from '../highlights/highlights';
 import { Weather } from '../../types/';
 import { formatDate } from '../../utilities/formatDate';
 
+
 interface ForeCastAndHighlights {
   forecastsParams: {
     nextFiveDays: Weather[];
@@ -29,8 +30,8 @@ const forecatsHighlights: React.FC<ForeCastAndHighlights> = ({
       return {
         day: dayName,
         image: `${forecast.weather_state_abbr}.png`,
-        temperatureMax: `${Math.floor(forecast.max_temp)}°C`,
-        temperatureMin: `${Math.floor(forecast.min_temp)}°C`,
+        temperatureMax: forecast.max_temp,
+        temperatureMin: forecast.min_temp,
       };
     }
   );
@@ -40,7 +41,7 @@ const forecatsHighlights: React.FC<ForeCastAndHighlights> = ({
 
   return (
     <>
-      <UnitSelect unit='F' />
+      <UnitSelect />
       <ForeCasts forecasts={nextFiveDaysValues} />
       {/* <Highlights highlights={highlightsValues} /> */}
       <Highlights {...highlightsValues}  />

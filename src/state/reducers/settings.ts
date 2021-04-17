@@ -5,18 +5,23 @@ import { Action } from './../actions';
 
 
 const initialState: Settings = {  
-  weatherUnit: 'F',
+  weatherUnit: 'C',
   distanceUnit: 'miles',
   speedUnit: 'mph',
 
 };
 
+const toggleTemperatureUnit = (state: Settings) => {
+  const newState = { ...state }
+  newState.weatherUnit = newState.weatherUnit === 'C' ? 'F' : 'C';
+  return newState
+}
+
 const reducer = (state: Settings = initialState, action: Action) => {
   switch (action.type) {
-    case ActionType.DUMMY_ACTION_0:
-      return state;
-    case ActionType.DUMMY_ACTION_1:
-      return state;
+    case ActionType.TOGGLE_TEMPERATURE_UNIT:
+      return toggleTemperatureUnit(state);
+    
     default:
       return state;
   }

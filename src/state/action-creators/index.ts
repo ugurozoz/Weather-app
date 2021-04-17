@@ -10,6 +10,7 @@ import {
   getCityWoeidCompleteAction,
   getCityWoeidFailAction,
   setCityAction,
+  toggleTemperatureUnitAction,
   Action,
 } from '../actions';
 import { skipCors } from '../../utilities/skipCors/skipCors';
@@ -107,6 +108,12 @@ export const getCityWoeid = (city: string) => {
         payload: error.message,
       });
     }
+  };
+};
+
+export const toggleTemperatureUnit = (): toggleTemperatureUnitAction => {
+  return {
+    type: ActionType.TOGGLE_TEMPERATURE_UNIT,
   };
 };
 

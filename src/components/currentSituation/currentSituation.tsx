@@ -3,7 +3,7 @@ import './currentSituation.css';
 
 interface situation {
   image: string;
-  temperature: number;
+  temperature: { val: number, unit: string };
   situationName: string;
 }
 
@@ -21,8 +21,8 @@ const currentSituation: React.FC<situation> = ({
         </div>
         <div className="currentCondition">
           <div className='currentTemperature'>
-            <span className='temperatureValue'>{temperature}</span>
-            <span className='temperatureUnit'>°C</span>
+            <span className='temperatureValue'>{temperature.val}</span>
+            <span className='temperatureUnit'>{temperature.unit}</span>
           </div>
           <div className='currentSituationName'>
             <span>{situationName}</span>
