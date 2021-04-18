@@ -55,8 +55,15 @@ function App() {
       (data) => {
         //console.log("DATA >>",)
         if (data.status === 'success') {
-          localStorage.setItem('location', data.city);
-          setLocation(data.city);
+          if (data.city === 'Frankfurt am Main') {
+            localStorage.setItem('location', 'Frankfurt');
+            setLocation(data.city);
+          } else {
+            localStorage.setItem('location', data.city);
+            setLocation(data.city);
+          }
+          
+          
         } else {
           console.log('ERROR', 'Location could not be fetched');
         }

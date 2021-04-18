@@ -9,12 +9,21 @@ const SearchPlacesButton: React.FC = (): JSX.Element => {
 
   const getCurrentLocation = () => {
     console.log("LOCATION CALL")
-    skipCors('http://ip-api.com/json/', 'http://localhost:4152/', '').then(
+    skipCors('http://ip-api.com/json/', 'http://weather-cors.trmov.com/', '').then(
       (data) => {
         console.log("DATA >>",data)
         if (data.status === 'success') {
-          localStorage.setItem('location', data.city);
-          getCityWoeid(data.city)
+          if (data.city === 'Frankfurt am Main') {
+            localStorage.setItem('location', 'Frankfurt');
+            getCityWoeid('Frankfurt')
+          } else {
+            localStorage.setItem('location', data.city);
+            getCityWoeid(data.city)
+          }
+          
+          
+
+
           
         } else {
           console.log('ERROR', 'Location could not be fetched');
