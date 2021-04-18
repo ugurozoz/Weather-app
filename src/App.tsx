@@ -57,7 +57,7 @@ function App() {
         if (data.status === 'success') {
           if (data.city === 'Frankfurt am Main') {
             localStorage.setItem('location', 'Frankfurt');
-            setLocation(data.city);
+            setLocation('Frankfurt');
           } else {
             localStorage.setItem('location', data.city);
             setLocation(data.city);
