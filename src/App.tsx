@@ -51,7 +51,7 @@ function App() {
 
   const getCurrentLocation = () => {
     //console.log("LOCATION CALL")
-    skipCors('http://ip-api.com/json/', 'http://localhost:4152/', '').then(
+    skipCors('http://ip-api.com/json/', 'http://weather-cors.trmov.com/', '').then(
       (data) => {
         //console.log("DATA >>",)
         if (data.status === 'success') {
