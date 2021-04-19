@@ -7,4 +7,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Built for devchallenges.io [Weather app Frontend Developer challenge](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).
 
 
-[comment]: <> (Click to see http://githubjobs.uurz.net.)
+[Click to see](http://weather.uurz.net).
