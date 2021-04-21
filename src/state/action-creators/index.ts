@@ -46,7 +46,7 @@ export const fetchWeather = (woeid: number = 44418) => {
     const url = `${apiURL}${woeid}/`;
     //console.log('FETCH WEATHER CALLED', url);
     try {
-      const response = await skipCors(url, 'http://weather-cors.trmov.com/', '');
+      const response = await skipCors(url, 'https://weather-cors.trmov.com/', '');
       dispatch<FetchWeatherCompleteAction>({
         type: ActionType.FETCH_WEATHER_COMPLETE,
         payload: response.consolidated_weather,
@@ -96,7 +96,7 @@ export const getCityWoeid = (city: string) => {
     //console.log('GET WOID', url);
 
     try {
-      const response = await skipCors(url, 'http://weather-cors.trmov.com/', '');
+      const response = await skipCors(url, 'https://weather-cors.trmov.com/', '');
       //console.log('WOID RESULT', response);
       dispatch<getCityWoeidCompleteAction>({
         type: ActionType.GET_CITY_WOEID_COMPLETE,

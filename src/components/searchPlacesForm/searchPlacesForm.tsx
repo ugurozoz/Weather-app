@@ -37,7 +37,7 @@ const SearchPlacesForm: React.FC<searchForm> = ({
     const searchTerm = `query=${srcInput.current?.value}`;
     skipCors(
       'https://www.metaweather.com/api/location/search/?',
-      'http://weather-cors.trmov.com/',
+      'https://weather-cors.trmov.com/',
       searchTerm
     ).then((data) => {
       if (data.length > 0) {

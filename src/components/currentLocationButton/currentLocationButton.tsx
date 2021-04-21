@@ -9,7 +9,7 @@ const SearchPlacesButton: React.FC = (): JSX.Element => {
 
   const getCurrentLocation = () => {
     console.log("LOCATION CALL")
-    skipCors('http://ip-api.com/json/', 'http://weather-cors.trmov.com/', '').then(
+    skipCors('http://ip-api.com/json/', 'https://weather-cors.trmov.com/', '').then(
       (data) => {
         console.log("DATA >>",data)
         if (data.status === 'success') {
