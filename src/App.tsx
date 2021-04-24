@@ -4,6 +4,7 @@ import { useActions } from './hooks/use-actions';
 import { useEffect, useState } from 'react';
 import { skipCors } from './utilities/skipCors/skipCors';
 import { useTypedSelector } from './hooks/use-typed-selector';
+import { getPosition } from './utilities/getPosition';
 
 // import axios from 'axios';
 import './App.css';
@@ -49,26 +50,34 @@ function App() {
     }
   );
 
+  //
   const getCurrentLocation = () => {
-    //console.log("LOCATION CALL")
-    skipCors('http://ip-api.com/json/', 'https://weather-cors.trmov.com/', '').then(
-      (data) => {
-        //console.log("DATA >>",)
-        if (data.status === 'success') {
-          if (data.city === 'Frankfurt am Main') {
-            localStorage.setItem('location', 'Frankfurt');
-            setLocation('Frankfurt');
+    const apiURL = getPosition()
+      .then((position) => {
+        console.log('POSITION DATA', position);
+        const apiURL = `https://www.metaweather.com/api/location/search/?lattlong=${position.coords.latitude},${position.coords.longitude}`;
+        skipCors(
+          apiURL,
+          'https://weather-cors.trmov.com/',
+          ''
+        ).then((data) => {
+          console.log("DATA >>",data[0].title,data)
+          if (data) {
+            if (data[0].title === 'Frankfurt am Main') {
+              localStorage.setItem('location', 'Frankfurt');
+              setLocation('Frankfurt');
+            } else {
+              localStorage.setItem('location', data[0].title);
+              setLocation(data[0].title);
+            }
           } else {
-            localStorage.setItem('location', data.city);
-            setLocation(data.city);
+            console.log('ERROR', 'Location could not be fetched');
           }
-          
-          
-        } else {
-          console.log('ERROR', 'Location could not be fetched');
-        }
-      }
-    );
+        });
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
   };
 
   const getLocation = () => {
@@ -104,9 +113,7 @@ function App() {
             </div>
           ) : null}
 
-          <Current currentParams={weatherParams.currentParams}
-            
-          />
+          <Current currentParams={weatherParams.currentParams} />
         </section>
         <section className='forecasts-highlights'>
           {paramsLoading ? (
