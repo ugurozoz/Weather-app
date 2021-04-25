@@ -52,7 +52,7 @@ function App() {
 
   //
   const getCurrentLocation = () => {
-    const apiURL = getPosition()
+    getPosition()
       .then((position) => {
         console.log('POSITION DATA', position);
         const apiURL = `https://www.metaweather.com/api/location/search/?lattlong=${position.coords.latitude},${position.coords.longitude}`;

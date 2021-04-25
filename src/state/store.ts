@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
 
-import { ActionType } from './action-types';
+//import { ActionType } from './action-types';
 
 // Added for redux developer tools
 declare global {
